@@ -16,3 +16,5 @@ if (computerSelection <= 0.34) {
 }
 
 // step 5: Display both the userSelection and computerSelection in the console
+console.log("You chose: " + userSelection);
+console.log("Opponent chose: " + computerSelection);
