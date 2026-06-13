@@ -7,8 +7,5 @@ let userSelection = "";
 
 // steo 4
 prompt.get(["userSelection"], function (err, result) {
-    if (err) {
-        console.error(err);
-        return;
-    }
+    
 });
