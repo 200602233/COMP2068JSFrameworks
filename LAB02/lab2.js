@@ -5,10 +5,13 @@ prompt.start();
 
 let userSelection = "";
 
+// ask user rock paper or scissors
+console.log("\nRock, Paper, or Scissors? ")
+
 // steo 4
 prompt.get(["userSelection"], function (err, result) {
     // step 5
-    userSelection = result.userSelection.toUpperCase;
+    userSelection = result.userSelection.toUpperCase();
 
     //step 6 
     let randomNum = Math.random()
