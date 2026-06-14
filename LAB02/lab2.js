@@ -7,5 +7,11 @@ let userSelection = "";
 
 // steo 4
 prompt.get(["userSelection"], function (err, result) {
+    // step 5
+    userSelection = result.userSelection.toUpperCase();
+
+    //step 6 
+    let randomNum = Math.random()
+    let computerSelection;
     
 });
