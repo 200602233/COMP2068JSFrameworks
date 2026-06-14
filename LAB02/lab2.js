@@ -11,7 +11,7 @@ console.log("\nRock, Paper, or Scissors? ")
 // steo 4
 prompt.get(["userSelection"], function (err, result) {
     // step 5
-    userSelection = result.userSelection.toUpperCase();
+    userSelection = result.userSelection.toUpperCase(); // made uppercase for easier comparing
 
     //step 6 
     let randomNum = Math.random()
@@ -28,29 +28,29 @@ prompt.get(["userSelection"], function (err, result) {
     }
 
     //step 8
-    console.log("You chose: ", userSelection);
+    console.log("\nYou chose: ", userSelection);
     console.log("Opponent chose: ", computerSelection);
 
     //step 9
     if (userSelection === computerSelection) {
-    console.log("It's a tie");
+    console.log("\nIt's a tie\n");
     }
     else if (userSelection === "ROCK" && computerSelection === "SCISSORS") {
-        console.log("User Wins");
+        console.log("\nUser Wins\n");
     }
     else if (userSelection === "PAPER" && computerSelection === "ROCK") {
-        console.log("User Wins");
+        console.log("\nUser Wins\n");
     }
     else if (userSelection === "SCISSORS" && computerSelection === "PAPER") {
-        console.log("User Wins");
+        console.log("\nUser Wins\n");
     }
     else if (userSelection === "ROCK" && computerSelection === "PAPER") {
-        console.log("Computer Wins");
+        console.log("\nComputer Wins\n");
     }
     else if (userSelection === "PAPER" && computerSelection === "SCISSORS") {
-        console.log("Computer Wins");
+        console.log("\nComputer Wins\n");
     }
     else if (userSelection === "SCISSORS" && computerSelection === "ROCK") {
-        console.log("Computer Wins");
+        console.log("\nComputer Wins\n");
     }
 });
