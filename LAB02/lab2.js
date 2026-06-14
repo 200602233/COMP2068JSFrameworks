@@ -24,5 +24,10 @@ prompt.get(["userSelection"], function (err, result) {
         computerSelection = "Rock";
     }
 
-    
+    //step 8
+    console.log("You chose: ", userSelection);
+    console.log("Opponent chose: ", computerSelection);
+
+    //step 9
+
 });
