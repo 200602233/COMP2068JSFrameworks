@@ -4,6 +4,10 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
+// load mongoose adn global config
+var mongoose = require('mongoose');
+var configs = require("./configs/globals");
+
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 
@@ -21,6 +25,13 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
+
+
+// connect to MongoDB using Mongoose
+mongoose
+.connect(configs.ConnectStrings.MongoDB)
+.then(() => console.log('Connected to MongoDB'))
+.catch((error) => console.error("Error connecting to MongoDB: ", error));
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
