@@ -1,8 +1,38 @@
 body {
-  padding: 50px;
+  padding: 80px 20px 10px 20px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
 a {
   color: #00B7FF;
+}
+
+.top_nav{
+  background-color: rgb(162, 38, 162);
+}
+.nav-item{
+  margin-right: 5px;
+}
+.nav-item:hover {
+  transform: translate(2pz, -4px);
+  background-color: rgb(145, 33, 145);
+  border-radius: 50%;
+}
+
+.header{
+  
+  background-color: #00B7FF;
+  padding: 50px;
+  border-radius: 20px;
+
+}
+.header > h1{
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+h2{
+  margin-top: 20px;
+  background-color: rgba(172, 171, 171, 0.744);
+  /* blur affect - learned in CSS class */
+  box-shadow: 3px 3px 10px 1px gray;
 }
