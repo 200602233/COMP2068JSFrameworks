@@ -8,7 +8,7 @@ var router = express.Router();
 
 /* home paeg */
 router.get('/', function(req, res) {
-  res.render('home', { title: 'Home' });
+  res.render('index', { title: 'Home' });
 });
 
 /* about me page */
