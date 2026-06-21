@@ -1,6 +1,23 @@
+/* CSS layout to make the portfolio more eye catching */
+html{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  font-family: Monaco, sans-serif;
+  background: linear-gradient(135deg, #402440, #5e3a5e, #402440, #5e3a5e, #402440, #5e3a5e);
+}
+
 body {
-  padding: 80px 20px 10px 20px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  font-family: Georgia, 'Times New Roman', Times, serif !important;
+  padding-top: 90px;
+  font-size: 14px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 95%;
+  height: 80%;
 }
 
 a {
@@ -8,21 +25,24 @@ a {
 }
 
 .top_nav{
-  background-color: rgb(162, 38, 162);
+  background-color: rgb(140, 31, 140);
 }
 .nav-item{
   margin-right: 5px;
+  font-weight: bold;
 }
 .nav-item:hover {
   transform: translate(2pz, -4px);
-  background-color: rgb(145, 33, 145);
+  background-color: rgb(116, 24, 116);
+  color: white;
+  font-style: oblique;
   border-radius: 50%;
 }
 
 .header{
-  
-  background-color: #00B7FF;
+  background-color: #e6a7e6;
   padding: 50px;
+  margin-bottom: 20px;
   border-radius: 20px;
 
 }
@@ -30,9 +50,16 @@ a {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-h2{
+
+h3{
   margin-top: 20px;
+  margin-bottom: 15px;
   background-color: rgba(172, 171, 171, 0.744);
   /* blur affect - learned in CSS class */
   box-shadow: 3px 3px 10px 1px gray;
+}
+
+p, li{
+  /* left align para text - fix */
+  justify-content: left;
 }
