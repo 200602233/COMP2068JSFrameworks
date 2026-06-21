@@ -65,6 +65,7 @@ a {
   display: flex;
   align-items: start;
   justify-content: left;
+  text-decoration: none;
 }
 
 h1{
@@ -72,9 +73,10 @@ h1{
   font-size: larger;
   justify-content: center;
   align-items: center;
+  text-decoration: underline;
 }
 
-h3{
+h2{
   min-width: 100%;
   margin-top: 20px;
   background-color: rgba(196, 195, 195, 0.744);
@@ -90,7 +92,17 @@ p, li{
   justify-content: left;
 }
 
+
+
 /* About Page */
+.about-me-p{
+  width: 65%;
+}
+.container-about{
+  margin-bottom: 50px;
+}
+
+
 
 
 /* Project paeg */
