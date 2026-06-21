@@ -50,6 +50,7 @@ a {
   margin-right: 15px;
 }
 
+/* Home Page */
 
 .header{
   background-color: #e6a7e6;
@@ -76,6 +77,10 @@ p, li{
   justify-content: left;
 }
 
+/* About Page */
+
+
+/* Project paeg */
 
 .card{
   display: flex;
@@ -106,4 +111,31 @@ p, li{
 .card-body li a:hover{
   text-decoration: underline;
   color: rgb(72, 6, 57);
+}
+
+
+/* Contact Page */
+
+.container-contact{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.container-contact p{
+  font-size: 15px;
+  text-decoration: underline;
+}
+
+.container-contact img{
+  width: 30px;
+  height: 30px;
+  margin-bottom: 10px;
+}
+
+.container-contact img:hover{
+  width: 40px;
+  height: 40px;
+  background-color: #e6a7e6;
 }
