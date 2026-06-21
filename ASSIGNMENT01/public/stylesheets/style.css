@@ -8,7 +8,7 @@ html{
   background: linear-gradient(135deg, #402440, #5e3a5e, #402440, #5e3a5e, #402440, #5e3a5e);
 }
 html, body{
-  height: 100%;
+  min-height: 100%;
   margin: 0;
 }
 
@@ -20,8 +20,7 @@ body {
   display: flex;
   align-items: center;
   flex-direction: column;
-  width: 65%;
-  min-height: 100vh;
+  width: 75%;
 }
 
 a {
@@ -67,7 +66,7 @@ a {
 h3{
   margin-top: 20px;
   margin-bottom: 15px;
-  background-color: rgba(172, 171, 171, 0.744);
+  background-color: rgba(196, 195, 195, 0.744);
   /* blur affect - learned in CSS class */
   box-shadow: 3px 3px 10px 1px gray;
 }
@@ -75,4 +74,36 @@ h3{
 p, li{
   /* left align para text - fix */
   justify-content: left;
+}
+
+
+.card{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+  padding: 10px;
+}
+.card-img-div{
+  padding-top: 15px;
+  width: 200px;
+  height: auto;
+}
+
+.card-img-div img{
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: cover;
+}
+
+.card-body li{
+  list-style-type: none;
+}
+.card-body li a{
+  text-decoration: none;
+  color: black;
+}
+.card-body li a:hover{
+  text-decoration: underline;
+  color: rgb(72, 6, 57);
 }
