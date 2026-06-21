@@ -53,27 +53,40 @@ a {
 /* Home Page */
 
 .header{
+  min-width: 100%;
   background-color: #e6a7e6;
   padding: 50px;
-  margin-bottom: 20px;
+  margin-bottom: 30px;
   border-radius: 20px;
 
 }
 .header > h1{
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  display: flex;
+  align-items: start;
+  justify-content: left;
 }
 
+h1{
+  display: flex;
+  font-size: larger;
+  justify-content: center;
+  align-items: center;
+}
 
 h3{
+  min-width: 100%;
   margin-top: 20px;
-  margin-bottom: 15px;
   background-color: rgba(196, 195, 195, 0.744);
   /* blur affect - learned in CSS class */
   box-shadow: 3px 3px 10px 1px gray;
+  padding: 10px;
 }
+
 
 p, li{
   /* left align para text - fix */
+  margin-top: 20px;
   justify-content: left;
 }
 
