@@ -5,7 +5,7 @@ require('dotenv').config();
 
 const configurations = {
     ConnectStrings: {
-        MongoDB: process.env.MONGO_LOCAL
+        MongoDB: process.env.CONN_STR_MONGODB
     }
 }
 
