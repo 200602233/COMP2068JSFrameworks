@@ -10,52 +10,52 @@
 
   {{!-- Navigation(s) that will stay on EVERY page --}}
   <nav class="top_nav navbar navbar-expand-md fixed-top">
-
-  <div class="container-fluid">
-    <!-- hamburge menu -->
-    <button class="navbar-toggler" type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#mainNavbar"
-            aria-controls="mainNavbar"
-            aria-expanded="false"
-            aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="mainNavbar">
-      <ul class="navbar-nav me-auto">
-        <li class="nav-item">
-          <a class="nav-link" href="/">Home</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/about">About</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/projects">Projects</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/contact">Contact</a>
-        </li>
-      </ul>
-      <!-- sxternal icons (github, mailto...) -->
-      <ul class="navbar-nav ms-auto d-flex flex-row gap-2">
-        <li class="nav-item">
-          <a href="https://github.com/200602233" target="_blank">
-            <img class="nav-image" src="/images/github_blackIcon.png">
-          </a>
-        </li>
-        <li class="nav-item">
-          <a href="mailto:Brianna.Craig@MyGeorgian.ca" target="_blank">
-            <img class="nav-image" src="/images/mail_icon.png">
-          </a>
-        </li>
-        <li class="nav-item">
-          <a href="https://teams.microsoft.com/l/chat/0/0?users=Brianna.Craig@MyGeorgian.ca" target="_blank">
-            <img class="nav-image" src="/images/teams_icon.png">
-          </a>
-        </li>
-      </ul>
+    <div class="nav-initials">BC</div>
+    <div class="container-fluid">
+      <!-- hamburge menu -->
+      <button class="navbar-toggler" type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#mainNavbar"
+              aria-controls="mainNavbar"
+              aria-expanded="false"
+              aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="mainNavbar">
+        <ul class="navbar-nav me-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="/">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/about">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/projects">Projects</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/contact">Contact</a>
+          </li>
+        </ul>
+        <!-- sxternal icons (github, mailto...) -->
+        <ul class="navbar-nav ms-auto d-flex flex-row gap-2">
+          <li class="nav-item">
+            <a href="https://github.com/200602233" target="_blank">
+              <img class="nav-image" src="/images/github_blackIcon.png">
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="mailto:Brianna.Craig@MyGeorgian.ca" target="_blank">
+              <img class="nav-image" src="/images/mail_icon.png">
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="https://teams.microsoft.com/l/chat/0/0?users=Brianna.Craig@MyGeorgian.ca" target="_blank">
+              <img class="nav-image" src="/images/teams_icon.png">
+            </a>
+          </li>
+        </ul>
+      </div>
     </div>
-  </div>
 </nav>
   
   {{!-- Every view will be rendered here where 'body' is used --}}
@@ -65,4 +65,32 @@
     {{!-- Add Bootstrap --}}
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
   </body>
+  <img class="bottom-line" src="/images/bottom_of_page.png"/>
+
+
+  <footer class="footer navbar navbar-expand-md ">
+    <div class="footer-initials">
+      BC
+    </div>
+    <div>
+      <h6>Categories</h6>
+      <a href="/">Home</a>
+      <a href="/about">About Me</a>
+      <a href="/projects">My Projects</a>
+      <a href="/contact">Contact Me</a>
+    </div>
+    <div>
+      <h6>More of Me</h6>
+      <a href="https://github.com/200602233" target="_blank">
+        <img class="nav-image" src="/images/github_blackIcon.png">
+      </a>
+      <a href="mailto:Brianna.Craig@MyGeorgian.ca" target="_blank">
+        <img class="nav-image" src="/images/mail_icon.png">
+      </a>
+      <a href="https://teams.microsoft.com/l/chat/0/0?users=Brianna.Craig@MyGeorgian.ca" target="_blank">
+        <img class="nav-image" src="/images/teams_icon.png">
+      </a>
+    </div>
+    
+  </footer>
 </html>
