@@ -7,18 +7,21 @@ html{
   font-family: Monaco, sans-serif;
   background: linear-gradient(135deg, #402440, #5e3a5e, #402440, #5e3a5e, #402440, #5e3a5e);
 }
+html, body{
+  height: 100%;
+  margin: 0;
+}
 
 body {
   background-color: rgb(248, 225, 248) !important;
+  padding: 90px;
   font-family: Georgia, 'Times New Roman', Times, serif !important;
-  padding-top: 90px;
   font-size: 14px;
   display: flex;
-  justify-content: center;
   align-items: center;
   flex-direction: column;
-  width: 95%;
-  height: 80%;
+  width: 65%;
+  min-height: 100vh;
 }
 
 a {
