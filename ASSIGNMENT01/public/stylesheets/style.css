@@ -79,6 +79,10 @@ h2{
   /* blur affect - learned in CSS class */
   box-shadow: 3px 3px 10px 1px gray;
   padding: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
 }
 
 
@@ -127,6 +131,39 @@ p, li{
   margin-top: 20px;
   justify-content: left;
 }
+main{
+  width: 75%;
+}
+.index-nav{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  font-size: 18px;
+  margin-bottom: 30px;
+}
+.index-nav p{
+  margin: 0 10px 0 10px;
+}
+.index-nav a{
+  text-decoration: none;
+  color: #540654;
+}
+.index-nav a:hover{
+  color: #690a69;
+  text-shadow: 1px 1px rgba(0, 0, 0, 0.362);
+}
+.index-skills{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  text-align: center;
+  list-style-type: none;
+}
+.index-skills div{
+  width: 50%;
+}
+
+
 
 
 
