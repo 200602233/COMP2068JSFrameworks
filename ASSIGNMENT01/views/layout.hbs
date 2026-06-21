@@ -9,29 +9,54 @@
   </head>
 
   {{!-- Navigation(s) that will stay on EVERY page --}}
-  <div>
-    <nav class="top_nav navbar navbar-expand-sm p-3 fixed-top">
+  <nav class="top_nav navbar navbar-expand-md p-3 fixed-top">
+
   <div class="container-fluid">
-    <ul class="navbar-nav">
-      <li class="nav-item">
-        <a class="nav-link" href="/">Home</a>
-      </li>
-     <li class="nav-item">
-        <a class="nav-link" href="/about">About</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="/projects">Projects</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="/contact">Contact</a>
-      </li>
-      {{!-- <li class="nav-item">
-        <a class="nav-link disabled" href="#">Disabled</a>
-      </li> --}}
-    </ul>
+    <!-- hamburge menu -->
+    <button class="navbar-toggler" type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#mainNavbar"
+            aria-controls="mainNavbar"
+            aria-expanded="false"
+            aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="mainNavbar">
+      <ul class="navbar-nav me-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="/">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/about">About</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/projects">Projects</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/contact">Contact</a>
+        </li>
+      </ul>
+      <!-- sxternal icons (github, mailto...) -->
+      <ul class="navbar-nav ms-auto d-flex flex-row gap-2">
+        <li class="nav-item">
+          <a href="https://github.com/200602233">
+            <img class="nav-image" src="/images/github_blackIcon.png" width="28">
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="mailto:Brianna.Craig@MyGeorgian.ca">
+            <img class="nav-image" src="/images/mail_icon.png" width="28">
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="#">
+            <img class="nav-image" src="/images/github_blackIcon.png" width="28">
+          </a>
+        </li>
+      </ul>
+    </div>
   </div>
 </nav>
-  </div>
   
   {{!-- Every view will be rendered here where 'body' is used --}}
 
