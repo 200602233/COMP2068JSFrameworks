@@ -7,3 +7,20 @@
        Login
     {{/if}}
 </h1>
+
+{{!-- error message for invalid credentiasl --}}
+{{if messages}}
+    <div class="alert alert-danger">
+        Invalid Credentials!!!
+    </div>
+{{else}}
+    <div class="alert alert-info">
+        Please enter your credentials.
+    </div>
+{{/if}}
+<form method="post">
+    {{!-- user and pass --}}
+    <fieldset></fieldset>
+    {{!-- if no account, direct to register --}}
+    <fieldset></fieldset>
+</form>
