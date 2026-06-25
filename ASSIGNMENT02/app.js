@@ -44,6 +44,12 @@ app.use((req, res, next) => {
 
 });
 
+// connect to MongoDB using Mongoose
+mongoose
+.connect(configs.ConnectStrings.MongoDB)
+.then(() => console.log('Connected to MongoDB'))
+.catch((error) => console.error('Error connecting to MongoDB: ', error));
+
 // error handler
 app.use(function(err, req, res, next) {
   // set locals, only providing error in development
