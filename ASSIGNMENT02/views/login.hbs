@@ -9,7 +9,8 @@
 </h1>
 
 {{!-- error message for invalid credentiasl --}}
-{{if messages}}
+{{!-- may change alert colours later --}}
+{{#if messages}}
     <div class="alert alert-danger">
         Invalid Credentials!!!
     </div>
@@ -19,8 +20,20 @@
     </div>
 {{/if}}
 <form method="post">
-    {{!-- user and pass --}}
-    <fieldset></fieldset>
-    {{!-- if no account, direct to register --}}
-    <fieldset></fieldset>
+    {{!-- user --}}
+    <fieldset>
+        <label for="username" class="col-2">* Username: </label>
+        <input name="username" id="username" required/>
+    </fieldset>
+    {{!-- pass --}}
+    <fieldset>
+        <label for="password" class="col-2">* Password: </label>
+        <input name="password" id="password" required />
+    </fieldset>
+    {{!-- btn and if no account, direct to register --}}
+    <fieldset>
+        <button class="btn">Login</button>
+        <hr/> Don't have an account? 
+        <a href="/register" title="register">Register today!</a>
+    </fieldset>
 </form>
