@@ -34,6 +34,16 @@ app.use(function(req, res, next) {
   next(createError(404));
 });
 
+// get current URL
+app.use((req, res, next) => {
+
+    res.locals.currentUrl = req.originalUrl;
+    res.locals.lang = req.query.lang || 'en';
+
+    next();
+
+});
+
 // error handler
 app.use(function(err, req, res, next) {
   // set locals, only providing error in development

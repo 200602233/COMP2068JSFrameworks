@@ -21,6 +21,7 @@ router.get('/categories', function(req, res, next) {
   }
   res.render('categories', { title: title, lang: lang});
 });
+
 // Words page
 router.get('/words', function(req, res, next) {
   const lang = req.query.lang || 'en';
@@ -30,6 +31,7 @@ router.get('/words', function(req, res, next) {
   }
   res.render('words', { title: title, lang: lang});
 });
+
 // phrases apge
 router.get('/phrases', function(req, res, next) {
   const lang = req.query.lang || 'en';
@@ -39,6 +41,7 @@ router.get('/phrases', function(req, res, next) {
   }
   res.render('phrases', { title: title, lang: lang});
 });
+
 // adding form page
 router.get('/add', function(req, res, next) {
   const lang = req.query.lang || 'en';
@@ -48,6 +51,7 @@ router.get('/add', function(req, res, next) {
   }
   res.render('add', { title: title, lang: lang});
 });
+
 // all page
 router.get('/all', function(req, res, next) {
   const lang = req.query.lang || 'en';
@@ -58,15 +62,24 @@ router.get('/all', function(req, res, next) {
   res.render('all', { title: title, lang: lang});
 });
 
+// Login
+router.get('/login', function(req, res, next) {
+  const lang = req.query.lang || 'en';
+  let title = 'Login';
+  if (lang === 'es') {
+      title = 'Iniciar sesión';
+  }
+  res.render('login', { title: title, lang: lang});
+});
 
-// get current URL
-app.use((req, res, next) => {
-
-    res.locals.currentUrl = req.originalUrl;
-    res.locals.lang = req.query.lang || 'en';
-
-    next();
-
+// Register
+router.get('/register', function(req, res, next) {
+  const lang = req.query.lang || 'en';
+  let title = 'Register';
+  if (lang === 'es') {
+      title = 'Registrarse';
+  }
+  res.render('register', { title: title, lang: lang});
 });
 
 
