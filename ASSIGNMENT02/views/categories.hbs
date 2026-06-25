@@ -1,0 +1,20 @@
+
+<h1>
+    {{#if (eq lang "es")}}
+        Elige tu categoría:
+    {{else}}
+        Choose your category:
+    {{/if}}
+</h1>
+
+<nav>
+    {{#if (eq lang "es")}}
+        <a href="/all?lang={{lang}}">TODO</a>
+        <a href="/words?lang={{lang}}">PALABRAS</a>
+        <a href="/phrases?lang={{lang}}">FRASES</a>
+    {{else}}
+        <a href="/all?lang={{lang}}">ALL</a>
+        <a href="/words?lang={{lang}}">WORDS</a>
+        <a href="/phrases?lang={{lang}}">PHRASES</a>
+    {{/if}}
+</nav>
