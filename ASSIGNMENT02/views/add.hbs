@@ -1,0 +1,26 @@
+
+<label>
+    {{#if (eq lang "es")}}
+        Tipo
+    {{else}}
+        Type
+    {{/if}}
+</label>
+
+<select id="type" name="type">
+    <option value="word">
+        {{#if (eq lang "es")}}
+            Palabra
+        {{else}}
+            Word
+        {{/if}}
+    </option>
+
+    <option value="phrase">
+        {{#if (eq lang "es")}}
+            Frase
+        {{else}}
+            Phrase
+        {{/if}}
+    </option>
+</select>
