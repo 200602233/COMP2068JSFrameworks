@@ -1,7 +1,8 @@
 # Spanish-English Translation Application
 
 ## Live Link:
-link
+Azure: comp2068-assignment02-bpc6bfb5fzeafkfd.canadaeast-01.azurewebsites.net
+Render: 
 
 ## Brief Description:
 This application was designed to help users memorize spanish-english translation and allow them to customize which words they want to store in their library.  
