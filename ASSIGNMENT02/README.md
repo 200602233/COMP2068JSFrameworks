@@ -16,3 +16,8 @@ I implemented the application with two buttons in top navigation; English and Sp
 
 ## Feature #3 - Flashcard/Test:
 I added a feature to allow users to test themselves to help memorizes the translations better
+
+## Feature #3 - Auto Translate with User Input (API):
+In my application, when a user enters a word or phrase they want to store, the app will auto suggest a translation. (ex. Hello, suggestion: Hola).
+    NPM Packages: axios and node-fetch?
+
