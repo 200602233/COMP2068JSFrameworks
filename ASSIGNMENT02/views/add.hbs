@@ -1,26 +1,132 @@
-
-<label>
+<h1>
     {{#if (eq lang "es")}}
-        Tipo
+        Añadir nueva Palabra / Frase:
     {{else}}
-        Type
+        Add new Word / Phrase:
     {{/if}}
-</label>
+</h1>
 
-<select id="type" name="type">
-    <option value="word">
+<form>
+    {{!-- Type: word or phrase --}}
+    <label>
         {{#if (eq lang "es")}}
-            Palabra
+            Tipo
         {{else}}
-            Word
+            Type
         {{/if}}
-    </option>
+    </label>
+    <select id="type" name="type">
+        <option value="word">
+            {{#if (eq lang "es")}}
+                Palabra
+            {{else}}
+                Word
+            {{/if}}
+        </option>
+        <option value="phrase">
+            {{#if (eq lang "es")}}
+                Frase
+            {{else}}
+                Phrase
+            {{/if}}
+        </option>
+    </select>
+    <br><br>
+    {{!-- Englsih word/phrase entered --}}
+    <label>
+        {{#if (eq lang "es")}}
+            Inglés
+        {{else}}
+            English
+        {{/if}}
+    </label>
+    <br>
+    <input
+        type="text"
+        id="englishEntry"
+        name="englishEntry"
+        required>
+    <br><br>
+    {{!-- Spanisg word entered --}}
+    <label>
+        {{#if (eq lang "es")}}
+            Español
+        {{else}}
+            Spanish
+        {{/if}}
+    </label>
+    <br>
+    <input
+        type="text"
+        id="spanishEntry"
+        name="spanishEntry"
+        required>
+    <br><br>
 
-    <option value="phrase">
+    <label>
         {{#if (eq lang "es")}}
-            Frase
+            Categoría
         {{else}}
-            Phrase
+            Category
         {{/if}}
-    </option>
-</select>
+    </label>
+    <br>
+    <select name="category">
+        {{#if (eq lang "es")}}
+            <option>Saludos</option>
+            <option>Viajes</option>
+            <option>Comida</option>
+            <option>Animales</option>
+            <option>Escuela y Trabajo</option>
+            <option>Familia</option>
+            <option>Colores</option>
+            <option>Números</option>
+            <option>Otro</option>
+        {{else}}
+            <option>Greetings</option>
+            <option>Travel</option>
+            <option>Food</option>
+            <option>Animals</option>
+            <option>School & Work</option>
+            <option>Family</option>
+            <option>Colours</option>
+            <option>Numbers</option>
+            <option>Other</option>
+        {{/if}}
+    </select>
+    <br><br>
+
+    <label>
+        {{#if (eq lang "es")}}
+            Usado en una oración:
+        {{else}}
+            Used in a sentence:
+        {{/if}}
+    </label>
+    <br>
+    <input
+        type="text"
+        name="usage">
+    <br><br>
+
+    <label>
+        {{#if (eq lang "es")}}
+            Nota:
+        {{else}}
+            Note:
+        {{/if}}
+    </label>
+    <br>
+    <textarea
+        name="note"
+        rows="4"></textarea>
+    <br><br>
+
+    <button type="submit">
+        {{#if (eq lang "es")}}
+            Guardar
+        {{else}}
+            Save Entry
+        {{/if}}
+    </button>
+</form>
