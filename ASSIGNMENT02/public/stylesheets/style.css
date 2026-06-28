@@ -11,7 +11,7 @@ body {
   align-items: center;
   flex-direction: column;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-  background-color: rgb(255, 255, 170) !important;
+  background-color: rgb(243, 243, 218) !important;
   padding-top: 70px;
 }
 
@@ -30,7 +30,10 @@ body {
 /* Ttop nav */
 .top_nav{
   flex: 1;
-  background-color: rgb(121, 240, 201);
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  background-color: rgb(167, 237, 214);
 }
 
 .collapse > ul:nth-child(2) > a{
@@ -57,6 +60,7 @@ body {
   width: 100%;
   height: fit-content;
   padding-top: 15px;
+  margin-top: 30px;
 }
 .bottom-nav ul{
   list-style-type: none;
@@ -103,8 +107,23 @@ body {
 
 
 /* Categories */
-
-
+.nav-cat{
+  display: flex;
+  flex-direction: row;
+  text-align: center;
+}
+.nav-cat a{
+  border: 2px solid black;
+  padding: 80px;
+  margin: 30px 30px;
+  text-decoration: none;
+  color: black;
+  font-size: 20px;
+  border-radius: 30%;
+}
+.nav-cat a:hover{
+  background-color: rgba(128, 128, 128, 0.134);
+}
 
 /* All  */
 
