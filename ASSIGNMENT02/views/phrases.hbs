@@ -20,7 +20,7 @@
         <input
         type="text"
         id="searchBar"
-        placeholder="...">
+        placeholder="{{#if (eq lang "es")}}Busca algo aquí...{{else}}Search something here...{{/if}}">
     </div>
     <a href="/add?lang={{lang}}" class="addBtn">
         {{#if (eq lang "es")}}
