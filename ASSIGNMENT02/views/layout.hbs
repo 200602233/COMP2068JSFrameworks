@@ -55,12 +55,13 @@
             <!--english or spanish-->
             <ul class="navbar-nav ms-auto d-flex flex-row gap-2">
               {{#if (eq lang "es")}}
-                <a href="{{currentUrl}}?lang=en">Inglés</a>
-                <a href="{{currentUrl}}?lang=es">Español (Mexicano)</a>
+                <a href="{{currentUrl}}?lang=en"><img src="/images/english-flag.png" class="lang-flag" alt="english flag"/> Inglés</a>
+                <a href="{{currentUrl}}?lang=es"><img src="/images/mexico_flag.png" class="lang-flag" alt="mexico flag"/> Español (Mexicano)</a>
               {{else}}
-                <a href="{{currentUrl}}?lang=en">English</a>
-                <a href="{{currentUrl}}?lang=es">Spanish (Mexican)</a>
-              {{/if}}
+                <a href="{{currentUrl}}?lang=en"><img src="/images/english-flag.png" class="lang-flag" alt="english flag"/> English</a>
+                <a href="{{currentUrl}}?lang=es"><img src="/images/mexico_flag.png" class="lang-flag" alt="mexico flag"/> Spanish (Mexican)</a>
+              {{/if}} 
+
             </ul>
           </div>
         </div>

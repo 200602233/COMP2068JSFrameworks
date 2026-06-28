@@ -15,8 +15,16 @@ body {
   padding-top: 70px;
 }
 
-a {
-  color: #bf4812;
+.nav-logo{
+  margin-left: 15px;
+  width: 43px;
+  height: 43px;
+}
+.bottom-nav > .nav-logo{
+  margin-left: 100px;
+  margin-top: 20px;
+  width: 86px;
+  height: 86px;
 }
 
 /* Ttop nav */
@@ -24,6 +32,21 @@ a {
   flex: 1;
   background-color: rgb(121, 240, 201);
 }
+
+.collapse > ul:nth-child(2) > a{
+  text-decoration: none !important;
+  color: black;
+  margin-right: 10px;
+}
+.collapse > ul:nth-child(2) > a:hover{
+  text-decoration: none !important;
+  color: rgb(185, 78, 78);
+}
+.lang-flag{
+  width: 20px;
+  height: 20px;
+}
+
 
 /* Bottom nav */
 .bottom-nav{
@@ -40,6 +63,7 @@ a {
 }
 
 
+
 /* Login / Register */
 .auth-form-row{
   display: flex;
@@ -54,9 +78,9 @@ a {
 .authLabel + input{
   width: 200px;
 }
-.auth-p{
 
-}
+
+
 .auth-form-row:last-child{
   margin-top: 50px;
   display: flex;
