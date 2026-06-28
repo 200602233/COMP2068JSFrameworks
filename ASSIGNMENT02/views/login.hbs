@@ -10,30 +10,42 @@
 
 {{!-- error message for invalid credentiasl --}}
 {{!-- may change alert colours later --}}
-{{#if messages}}
-    <div class="alert alert-danger">
-        Invalid Credentials!!!
-    </div>
+{{#if (eq lang "es")}}
+    {{#if messages}}
+        <div class="alert alert-danger">
+            Invalid Credentials!!!
+        </div>
+    {{else}}
+        <div class="alert alert-info">
+            Please enter your credentials.
+        </div>
+    {{/if}}
 {{else}}
-    <div class="alert alert-info">
-        Please enter your credentials.
-    </div>
+    {{#if messages}}
+        <div class="alert alert-danger">
+            Invalid Credentials!!!
+        </div>
+    {{else}}
+        <div class="alert alert-info">
+            Please enter your credentials.
+        </div>
+    {{/if}}
 {{/if}}
 <form method="post">
     {{!-- user --}}
-    <fieldset>
-        <label for="username" class="col-2">* Username: </label>
+    <fieldset class="auth-form-row">
+        <label for="username" class="authLabel">* Username: </label>
         <input name="username" id="username" required/>
     </fieldset>
     {{!-- pass --}}
-    <fieldset>
-        <label for="password" class="col-2">* Password: </label>
-        <input name="password" id="password" required />
+    <fieldset class="auth-form-row">
+        <label for="password" class="authLabel">* Password: </label>
+        <input type="password" name="password" id="password" required />
     </fieldset>
     {{!-- btn and if no account, direct to register --}}
-    <fieldset>
+    <fieldset class="auth-form-row">
         <button class="btn">Login</button>
-        <hr/> Don't have an account? 
-        <a href="/register" title="register">Register today!</a>
+        <hr/> 
+        Don't have an account? <a href="/register" title="register">Register today!</a>
     </fieldset>
 </form>

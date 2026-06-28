@@ -40,11 +40,37 @@ a {
 }
 
 
-/* Login */
+/* Login / Register */
+.auth-form-row{
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+}
+.authLabel{
+  width: 180px;
+  text-align: left;
+  margin-right: 15px;
+}
+.authLabel + input{
+  width: 200px;
+}
+.auth-p{
 
+}
+.auth-form-row:last-child{
+  margin-top: 50px;
+  display: flex;
+  flex-direction: column;
+}
+.auth-form-row:last-child .btn{
+  border: 2px solid #bf4812;
+  background-color: #bf49127c;
+}
+.auth-form-row:last-child .btn:hover{
+  border: 2px solid #81310c;
+  background-color: #cc4b0f9d;
+}
 
-
-/* Register */
 
 
 
