@@ -1,17 +1,9 @@
 
-html{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  font-family: Monaco, sans-serif;
-  background-color: rgb(232, 229, 227);
-}
-
 html, body{
   width: 100%;
   height: 100%;
-}
+  margin: 0;
+} 
 
 
 body {
@@ -19,23 +11,32 @@ body {
   align-items: center;
   flex-direction: column;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-  width: 95%;
-  padding: 60px;
   background-color: rgb(255, 255, 170) !important;
+  padding-top: 70px;
 }
 
 a {
-  color: #00B7FF;
+  color: #bf4812;
 }
 
 /* Ttop nav */
 .top_nav{
+  flex: 1;
   background-color: rgb(121, 240, 201);
 }
 
 /* Bottom nav */
 .bottom-nav{
+  flex: 3;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
   background-color: rgb(121, 240, 201);
+  width: 100%;
+  height: fit-content;
+  padding-top: 15px;
+}
+.bottom-nav ul{
+  list-style-type: none;
 }
 
 
