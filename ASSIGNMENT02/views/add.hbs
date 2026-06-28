@@ -35,31 +35,31 @@
     {{!-- Englsih word/phrase entered --}}
     <label>
         {{#if (eq lang "es")}}
-            Inglés
+            * Español
         {{else}}
-            English
+            * English
         {{/if}}
     </label>
     <br>
     <input
         type="text"
-        id="englishEntry"
-        name="englishEntry"
+        id="firstEntry"
+        name="firstEntry"
         required>
     <br><br>
     {{!-- Spanisg word entered --}}
     <label>
         {{#if (eq lang "es")}}
-            Español
+            * Inglés (sugerencias automáticas)
         {{else}}
-            Spanish
+            * Spanish (auto suggestion)
         {{/if}}
     </label>
     <br>
     <input
         type="text"
-        id="spanishEntry"
-        name="spanishEntry"
+        id="secondEntry"
+        name="secondEntry"
         required>
     <br><br>
 
@@ -130,3 +130,27 @@
         {{/if}}
     </button>
 </form>
+
+<script>
+    // event listener to hear when user types abd enters a word, then once they click out of he box, a suggested word will appear
+    document.getElementById("firstEntry").addEventListener("change", async function () {
+        const text = this.value;
+        const lang = "{{lang}}";
+        if (!text) return;
+
+        // fetch api for azure translator to auto translate the second word into the opposite language of the first box
+        const response = await fetch("/api/translate", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                text: text,
+                lang: lang
+            })
+        });
+        const data = await response.json();
+        // adds translated word into secondEntry box
+        document.getElementById("secondEntry").value = data.translation;
+    });
+</script>
