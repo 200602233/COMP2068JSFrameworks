@@ -10,42 +10,36 @@
 
 {{!-- error message for invalid credentiasl --}}
 {{!-- may change alert colours later --}}
-{{#if (eq lang "es")}}
-    {{#if messages}}
-        <div class="alert alert-danger">
-            Invalid Credentials!!!
-        </div>
-    {{else}}
-        <div class="alert alert-info">
-            Please enter your credentials.
-        </div>
-    {{/if}}
+
+{{#if messages}}
+    <div class="alert alert-danger">
+        {{#if (eq lang "es")}}Credenciales inválidas!!
+        {{else}}Invalid Credentials!!!
+        {{/if}}
+    </div>
 {{else}}
-    {{#if messages}}
-        <div class="alert alert-danger">
-            Invalid Credentials!!!
-        </div>
-    {{else}}
-        <div class="alert alert-info">
-            Please enter your credentials.
-        </div>
-    {{/if}}
+    <div class="alert alert-info">
+        {{#if (eq lang "es")}}Por favor, introduzca sus credenciales.
+        {{else}}Please enter your credentials.
+        {{/if}}
+    </div>
 {{/if}}
+
 <form method="post">
     {{!-- user --}}
     <fieldset class="auth-form-row">
-        <label for="username" class="authLabel">* Username: </label>
+        <label for="username" class="authLabel">{{#if (eq lang "es")}}* Nombre de usuario: {{else}}* Username: {{/if}}</label>
         <input name="username" id="username" required/>
     </fieldset>
     {{!-- pass --}}
     <fieldset class="auth-form-row">
-        <label for="password" class="authLabel">* Password: </label>
+        <label for="password" class="authLabel">{{#if (eq lang "es")}}* Contraseña: {{else}}* Password: {{/if}}</label>
         <input type="password" name="password" id="password" required />
     </fieldset>
     {{!-- btn and if no account, direct to register --}}
     <fieldset class="auth-form-row">
-        <button class="btn">Login</button>
+        <button class="btn">{{#if (eq lang "es")}}Iniciar sesión{{else}}Login{{/if}}</button>
         <hr/> 
-        Don't have an account? <a href="/register" title="register">Register today!</a>
+        {{#if (eq lang "es")}}¿No tienes cuenta? {{else}}Don't have an account? {{/if}}<a href="/register?lang={{lang}}" title="register">{{#if (eq lang "es")}}¡Regístrate hoy!{{else}}Register today!{{/if}}</a>
     </fieldset>
 </form>

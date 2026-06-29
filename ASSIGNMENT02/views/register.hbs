@@ -30,6 +30,6 @@
     <fieldset class="auth-form-row">
         <button class="btn">{{#if (eq lang "es")}}Registro{{else}}Register{{/if}}</button>
         <hr/> 
-        {{#if (eq lang "es")}}¿Ya tienes una cuenta?{{else}}Already have an account?{{/if}}<a href="/login" title="login">{{#if (eq lang "es")}}¡Inicia sesión ahora!{{else}}Login now!{{/if}}</a>
+        {{#if (eq lang "es")}}¿Ya tienes una cuenta?{{else}}Already have an account?{{/if}}<a href="/login?lang={{lang}}" title="login">{{#if (eq lang "es")}}¡Inicia sesión ahora!{{else}}Login now!{{/if}}</a>
     </fieldset>
 </form>
