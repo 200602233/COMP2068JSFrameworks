@@ -11,7 +11,7 @@
       {{!-- Navigation(s) that will stay on EVERY page --}}
       {{!-- top nav --}}
       <nav class="top_nav navbar navbar-expand-md fixed-top">
-        <div class="nav-logo">LOGO</div>
+        <div><a href="/?lang={{lang}}"><img src="/images/logo.png" class="nav-logo-top-nav" alt="logo" /></a></div>
         <div class="container-fluid">
           <!-- hamburger menu for if user makes screen smaller -->
           <button class="navbar-toggler" type="button"
@@ -69,7 +69,7 @@
     {{{body}}}
     {{!-- Bottom Nav --}}
     <nav class="bottom-nav navbar-expand">
-      <div class="nav-logo">LOGO</div>
+      <div><a href="/?lang={{lang}}"><img src="/images/logo.png" class="nav-logo-bottom-nav" alt="logo" /></a></div>
       <div class="main-nav">
         <ul>
           {{#if (eq lang "es")}}

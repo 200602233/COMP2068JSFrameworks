@@ -15,14 +15,18 @@ body {
   padding-top: 70px;
 }
 
-.nav-logo{
+/* logo */
+.nav-logo-top-nav{
   margin-left: 15px;
   width: 43px;
   height: 43px;
 }
-.bottom-nav > .nav-logo{
+.bottom-nav > div:first-child{
   margin-left: 100px;
   margin-top: 20px;
+}
+.nav-logo-bottom-nav{
+  margin-left: 15px;
   width: 86px;
   height: 86px;
 }
