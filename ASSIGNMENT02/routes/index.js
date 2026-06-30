@@ -34,24 +34,34 @@ router.get('/register', function(req, res, next) {
   res.render('register', { title: title, lang: lang});
 });
 //post - based on lesson08 code
-router.post('/register', (req, res, next) =>{
-  User.register(
-    new User({username: req.body.username}),
-    req.body.password,
-    (error, user) => {
-  if (error) {
+router.post('/register', async (req, res, next) =>{
+  try{
+    const user = await User.register(
+      new User({
+        username: req.body.username,
+        email: req.body.email
+      }),
+      req.body.password,
+    );
+    req.login(user, (err) =>{
+      if (err){
+        console.log(err);
+        return res.redirect("/register");
+      }
+      return res.redirect("/");
+    });
+  } catch (error){
     console.log(error);
-    return res.redirect("/register");
-  }
-  req.login(user, (err) => {
-    if (err) {
-      console.log(err);
-      return res.redirect("/register");
+    let message = "Registration failed";
+    if(err.name === "UserExisitsError"){
+      message = "Username already exists";
     }
-    return res.redirect("/categories");
-  });
-}
-  )
+    // send error not crsah
+    return res.render("register", {
+      title: "Register",
+      error: error.message
+    });
+  }
 });
 
 

@@ -5,6 +5,7 @@ const plm = plmModule.default || plmModule;
 
 var dataSchemaObj = {
     username: { type: String },
+    email: {type: String},
     password: { type: String },
     // add fields to handle oauth authenticated users
     oauthId: { type: String }, // id value to identify this user in the third-party system

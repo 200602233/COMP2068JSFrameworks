@@ -13,7 +13,11 @@
     {{!-- user --}}
     <fieldset class="auth-form-row">
         <label for="username" class="authLabel">{{#if (eq lang "es")}}* Nombre de usuario: {{else}}* Username: {{/if}}</label>
-        <input type="text" name="username" id="username" placeholder="ex. hola@gmail.com" required/>
+        <input type="text" name="username" id="username" placeholder="ex. Joe Doe" required/>
+    </fieldset>
+    <fieldset class="auth-form-row">
+        <label for="email" class="authLabel">{{#if (eq lang "es")}}* Email: {{else}}* Email: {{/if}}</label>
+        <input type="email" name="email" id="email" placeholder="ex. hola@gmail.com" required/>
     </fieldset>
     {{!-- pass --}}
     <p class="auth-p">{{#if (eq lang "es")}}La contraseña debe incluir{{else}}Password must include{{/if}}</p>
