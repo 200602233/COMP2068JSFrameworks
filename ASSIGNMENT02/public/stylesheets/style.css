@@ -40,12 +40,15 @@ body {
   background-color: rgb(167, 237, 214);
 }
 
-.collapse > ul:nth-child(2) > a{
+/* all language links */
+.collapse > ul:nth-child(2) > a,
+.lang-nav ul a{
   text-decoration: none !important;
   color: black;
   margin-right: 10px;
 }
-.collapse > ul:nth-child(2) > a:hover{
+.collapse > ul:nth-child(2) > a:hover,
+.lang-nav ul a:hover{
   text-decoration: none !important;
   color: rgb(185, 78, 78);
 }
@@ -59,15 +62,26 @@ body {
 .bottom-nav{
   flex: 3;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   background-color: rgb(121, 240, 201);
   width: 100%;
   height: fit-content;
   padding-top: 15px;
   margin-top: 30px;
 }
+.bottom-nav > div:first-of-type{
+    width: 100px;
+    margin: 30px;
+  }
+h6{
+  padding-left: 25px;
+}
 .bottom-nav ul{
   list-style-type: none;
+}
+.lang-nav ul{
+  display: flex;
+  flex-direction: column;
 }
 
 
@@ -145,3 +159,50 @@ body {
 
 
 
+
+/* Code for when user makes screen smaller */
+@media (max-width: 767.5px) {
+  body {
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    padding-top: 110px; 
+  }
+  /* hamburger menu */
+  .top_nav{
+    display: flex;
+    flex-direction: column;
+    padding: 15px;
+  }
+  /* logos */
+  .nav-logo-top-nav{
+    margin: 0;
+  }
+  /* top nav */
+  #mainNavbar{
+    margin-top: 5px;
+    padding-left: 10px;
+    padding-bottom: 10px;
+    background-color: rgb(186, 245, 225);
+    border-radius: 15px;
+  }
+  /* bottom nav */
+  .bottom-nav > div:first-of-type{
+    width: 80px;
+    margin: 10px;
+  }
+  /* category layout */
+  .nav-cat{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+  }
+  .nav-cat a{
+    padding: 40px;
+    margin: 10px;
+  }
+  /* add layout */
+  .h1-add{
+    padding-top: 160px;
+  }
+}

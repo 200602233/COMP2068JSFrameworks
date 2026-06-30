@@ -1,4 +1,4 @@
-<h1>
+<h1 class="h1-add">
     {{#if (eq lang "es")}}
         Añadir nueva Palabra / Frase:
     {{else}}
@@ -133,7 +133,8 @@
 
 <script>
     // event listener to hear when user types abd enters a word, then once they click out of he box, a suggested word will appear
-    document.getElementById("firstEntry").addEventListener("change", async function () {
+    // chnaged to blur so if user uses suggestions from previous submissions, it translates successfully
+    document.getElementById("firstEntry").addEventListener("blur", async function () {
         const text = this.value;
         const lang = "{{lang}}";
         if (!text) return;

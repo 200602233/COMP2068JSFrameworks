@@ -56,12 +56,11 @@
             <ul class="navbar-nav ms-auto d-flex flex-row gap-2">
               {{#if (eq lang "es")}}
                 <a href="{{currentUrl}}?lang=en"><img src="/images/english-flag.png" class="lang-flag" alt="english flag"/> Inglés</a>
-                <a href="{{currentUrl}}?lang=es"><img src="/images/mexico_flag.png" class="lang-flag" alt="mexico flag"/> Español (Mexicano)</a>
+                <a href="{{currentUrl}}?lang=es"><img src="/images/mexico_flag.png" class="lang-flag" alt="mexico flag"/> Español</a>
               {{else}}
                 <a href="{{currentUrl}}?lang=en"><img src="/images/english-flag.png" class="lang-flag" alt="english flag"/> English</a>
-                <a href="{{currentUrl}}?lang=es"><img src="/images/mexico_flag.png" class="lang-flag" alt="mexico flag"/> Spanish (Mexican)</a>
+                <a href="{{currentUrl}}?lang=es"><img src="/images/mexico_flag.png" class="lang-flag" alt="mexico flag"/> Spanish</a>
               {{/if}} 
-
             </ul>
           </div>
         </div>
@@ -71,6 +70,7 @@
     <nav class="bottom-nav navbar-expand">
       <div><a href="/?lang={{lang}}"><img src="/images/logo.png" class="nav-logo-bottom-nav" alt="logo" /></a></div>
       <div class="main-nav">
+        <h6>{{#if (eq lang "es")}}Páginas Principales{{else}}Main Pages{{/if}}</h6>
         <ul>
           {{#if (eq lang "es")}}
             <li>
@@ -102,6 +102,7 @@
         </ul>
       </div>
       <div class="info-nav">
+        <h6>{{#if (eq lang "es")}}Información{{else}}Information{{/if}}</h6>
         <ul>
           {{#if (eq lang "es")}}
             <li>
@@ -118,6 +119,18 @@
               <a class="nav-link" href="./referrals?lang={{lang}}">Suggested Referrals</a>
             </li>
           {{/if}}
+        </ul>
+      </div>
+      <div class="lang-nav">
+        <h6>{{#if (eq lang "es")}}Idioma{{else}}Language{{/if}}</h6>
+        <ul>
+          {{#if (eq lang "es")}}
+            <a href="{{currentUrl}}?lang=en"><img src="/images/english-flag.png" class="lang-flag" alt="english flag"/> Inglés</a>
+            <a href="{{currentUrl}}?lang=es"><img src="/images/mexico_flag.png" class="lang-flag" alt="mexico flag"/> Español</a>
+          {{else}}
+            <a href="{{currentUrl}}?lang=en"><img src="/images/english-flag.png" class="lang-flag" alt="english flag"/> English</a>
+            <a href="{{currentUrl}}?lang=es"><img src="/images/mexico_flag.png" class="lang-flag" alt="mexico flag"/> Spanish</a>
+          {{/if}} 
         </ul>
       </div>
     </nav>
