@@ -6,7 +6,14 @@ require('dotenv').config();
 const configurations = {
     ConnectStrings: {
         MongoDB: process.env.CONN_STR_MONGODB
-    }
-}
+    },
+    Authentication: {
+    GitHub: {
+      ClientId: process.env.GITHUB_CLIENT_ID,
+      ClientSecret: process.env.GITHUB_CLIENT_SECRET,
+      CallbackUrl: process.env.GITHUB_CALLBACK_URL
+    },
+  },
+};
 
 module.exports = configurations;

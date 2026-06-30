@@ -15,6 +15,11 @@ var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var apiRouter = require('./routes/api');
 
+const passport = require("passport");
+const session = require("express-session");
+var User = require('./models/user');
+var githubStrategy = require("passport-github2").Strategy;
+
 var app = express();
 
 // switch language from en to es
@@ -32,6 +37,57 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+
+// Configure passport module https://www.npmjs.com/package/express-session
+app.use(session({
+  secret: process.env.SECRET_SESSION,
+  resave: false,
+  saveUninitialized: false
+}));
+
+// PASSPORT
+// Initialize passport
+app.use(passport.initialize());
+app.use(passport.session());
+// Link passport to the user model
+passport.use(User.createStrategy());
+// configure github strategy
+passport.use(new githubStrategy(
+  // options object
+  {
+    clientID: configs.Authentication.GitHub.ClientId,
+    clientSecret: configs.Authentication.GitHub.ClientSecret,
+    callbackURL: configs.Authentication.GitHub.CallbackURL
+  },
+  // callback function
+  // profile is github profile
+  async (accessToken, refreshToken, profile, done) => {
+    // search user by ID
+    const user = await User.findOne({ oauthId: profile.id });
+    // user exists (returning user)
+    if (user) {
+      // no need to do anything else
+      return done(null, user);
+    }
+    else {
+      // new user so register them in the db
+      const newUser = new User({
+        username: profile.username,
+        oauthId: profile.id,
+        oauthProvider: 'Github',
+        created: Date.now()
+      });
+      // add to DB
+      const savedUser = await newUser.save();
+      // return
+      return done(null, savedUser);
+    }
+  }
+));
+// Set passport to write/read user data to/from session object
+passport.serializeUser(User.serializeUser());
+passport.deserializeUser(User.deserializeUser());
+
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);

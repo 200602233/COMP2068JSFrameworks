@@ -71,7 +71,7 @@
         {{/if}}
     </label>
     <br>
-    <select name="category">
+    <select id="category" name="category">
         {{#if (eq lang "es")}}
             <option>Saludos</option>
             <option>Viajes</option>
@@ -106,7 +106,8 @@
     <br>
     <input
         type="text"
-        name="usage">
+        name="usage"
+        id="usage">
     <br><br>
 
     <label>
@@ -119,6 +120,7 @@
     <br>
     <textarea
         name="note"
+        id="note"
         rows="4"></textarea>
     <br><br>
 

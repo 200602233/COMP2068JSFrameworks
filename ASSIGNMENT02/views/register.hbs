@@ -9,12 +9,12 @@
 </h1>
 
 {{!-- register form --}}
-<form method="post">
+<form action="/register" method="post">
     {{!-- user --}}
     <fieldset class="auth-form-row">
         <label for="username" class="authLabel">{{#if (eq lang "es")}}* Nombre de usuario: {{else}}* Username: {{/if}}</label>
-        <input type="email" id="username" placeholder="ex. hola@gmail.com" required/>
-    </fieldset class="auth-form-row">
+        <input type="text" name="username" id="username" placeholder="ex. hola@gmail.com" required/>
+    </fieldset>
     {{!-- pass --}}
     <p class="auth-p">{{#if (eq lang "es")}}La contraseña debe incluir{{else}}Password must include{{/if}}</p>
     <fieldset class="auth-form-row">
@@ -28,7 +28,7 @@
     </fieldset>
     {{!-- if jave account, direct to login --}}
     <fieldset class="auth-form-row">
-        <button class="btn">{{#if (eq lang "es")}}Registro{{else}}Register{{/if}}</button>
+        <button type="submit" class="btn">{{#if (eq lang "es")}}Registro{{else}}Register{{/if}}</button>
         <hr/> 
         {{#if (eq lang "es")}}¿Ya tienes una cuenta?{{else}}Already have an account?{{/if}}<a href="/login?lang={{lang}}" title="login">{{#if (eq lang "es")}}¡Inicia sesión ahora!{{else}}Login now!{{/if}}</a>
     </fieldset>

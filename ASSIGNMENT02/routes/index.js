@@ -1,5 +1,59 @@
 var express = require('express');
 var router = express.Router();
+const passport = require("passport");
+const User = require("../models/user")
+const Project = require("../models/project");
+
+
+// Login
+router.get('/login', function(req, res, next) {
+  const lang = req.query.lang || 'en';
+  let title = 'Login';
+  if (lang === 'es') {
+      title = 'Iniciar sesión';
+  }
+  // Handle validation messages from failed login attempts
+  let messages = req.session.messages || [];
+  req.session.messages = [];
+  res.render('login', { title: title, lang: lang, messages: messages});
+});
+// based off of lesson08 of demos from github
+router.post('/login', passport.authenticate("local",  {
+  successRedirect: "/categories",
+  failureRedirect: "/login",
+  failureMessage: "Invalid Login"
+}));
+
+// Register
+router.get('/register', function(req, res, next) {
+  const lang = req.query.lang || 'en';
+  let title = 'Register';
+  if (lang === 'es') {
+      title = 'Registrarse';
+  }
+  res.render('register', { title: title, lang: lang});
+});
+//post - based on lesson08 code
+router.post('/register', (req, res, next) =>{
+  User.register(
+    new User({username: req.body.username}),
+    req.body.password,
+    (error, user) => {
+  if (error) {
+    console.log(error);
+    return res.redirect("/register");
+  }
+  req.login(user, (err) => {
+    if (err) {
+      console.log(err);
+      return res.redirect("/register");
+    }
+    return res.redirect("/categories");
+  });
+}
+  )
+});
+
 
 /* GET home page. */
 // add the const lang so user can choose websites main language
@@ -23,64 +77,62 @@ router.get('/categories', function(req, res, next) {
 });
 
 // Words page
-router.get('/words', function(req, res, next) {
+router.get('/words', async function(req, res, next) {
   const lang = req.query.lang || 'en';
+  const words = await Project.find({type: "Words"});
   let title = 'Words';
   if (lang === 'es') {
       title = 'Palabras';
   }
-  res.render('words', { title: title, lang: lang});
+  res.render('words', { title: title, lang: lang, words});
 });
 
 // phrases apge
-router.get('/phrases', function(req, res, next) {
+router.get('/phrases', async function(req, res, next) {
   const lang = req.query.lang || 'en';
+  const words = await Project.find({type: "Phrases"});
   let title = 'Phrases';
   if (lang === 'es') {
       title = 'Frases';
   }
-  res.render('phrases', { title: title, lang: lang});
+  res.render('phrases', { title: title, lang: lang, words});
 });
 
 // adding form page
-router.get('/add', function(req, res, next) {
+router.get('/add', async function(req, res, next) {
   const lang = req.query.lang || 'en';
   let title = 'Add';
   if (lang === 'es') {
       title = 'Agregar';
   }
+  const newEntry = new Project({
+
+        firstWord: req.body.firstWord,
+        secondWord: req.body.secondWord,
+        pronunciation: req.body.pronunciation,
+        usage: req.body.usage,
+        category: req.body.category,
+        type: req.body.type,
+        note: req.body.note
+
+    });
+
+    await newEntry.save();
+    res.redirect("/all");
   res.render('add', { title: title, lang: lang});
 });
 
 // all page
-router.get('/all', function(req, res, next) {
+router.get('/all', async function(req, res, next) {
   const lang = req.query.lang || 'en';
+  const words = await Project.find();
   let title = 'All';
   if (lang === 'es') {
       title = 'Todo';
   }
-  res.render('all', { title: title, lang: lang});
+  res.render('all', { title: title, lang: lang, words});
 });
 
-// Login
-router.get('/login', function(req, res, next) {
-  const lang = req.query.lang || 'en';
-  let title = 'Login';
-  if (lang === 'es') {
-      title = 'Iniciar sesión';
-  }
-  res.render('login', { title: title, lang: lang});
-});
-
-// Register
-router.get('/register', function(req, res, next) {
-  const lang = req.query.lang || 'en';
-  let title = 'Register';
-  if (lang === 'es') {
-      title = 'Registrarse';
-  }
-  res.render('register', { title: title, lang: lang});
-});
 
 
 module.exports = router;
