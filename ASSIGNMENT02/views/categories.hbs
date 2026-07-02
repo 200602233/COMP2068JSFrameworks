@@ -1,20 +1,32 @@
 
-<h1>
-    {{#if (eq lang "es")}}
-        Elige tu categoría:
-    {{else}}
-        Choose your category:
-    {{/if}}
-</h1>
+{{#if user}}
+    <h1>
+        {{#if (eq lang "es")}}
+            Elige tu categoría:
+        {{else}}
+            Choose your category:
+        {{/if}}
+    </h1>
 
-<nav class="nav-cat">
-    {{#if (eq lang "es")}}
-        <a href="/all?lang={{lang}}">TODO</a>
-        <a href="/words?lang={{lang}}">PALABRAS</a>
-        <a href="/phrases?lang={{lang}}">FRASES</a>
-    {{else}}
-        <a href="/all?lang={{lang}}">ALL</a>
-        <a href="/words?lang={{lang}}">WORDS</a>
-        <a href="/phrases?lang={{lang}}">PHRASES</a>
-    {{/if}}
-</nav>
+    <nav class="nav-cat">
+        {{#if (eq lang "es")}}
+            <a href="/all?lang={{lang}}">TODO</a>
+            <a href="/words?lang={{lang}}">PALABRAS</a>
+            <a href="/phrases?lang={{lang}}">FRASES</a>
+        {{else}}
+            <a href="/all?lang={{lang}}">ALL</a>
+            <a href="/words?lang={{lang}}">WORDS</a>
+            <a href="/phrases?lang={{lang}}">PHRASES</a>
+        {{/if}}
+    </nav>
+{{else}}
+    <h1 class="categories-userMsg">
+        {{#if (eq lang "es")}}
+            Inicia sesión para ver las categorías
+        {{else}}
+            Please <a href="/login?lang={{lang}}">{{#if (eq lang "es")}}iniciar sesión {{else}}log in {{/if}}</a> to view categories and save words and phrases.
+        {{/if}}
+    </h1>
+    {{!-- maybe add image here so not so blank --}}
+    <img src="/images/logo.png"/>
+{{/if}}
