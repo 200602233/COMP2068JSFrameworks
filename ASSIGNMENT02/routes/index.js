@@ -65,6 +65,20 @@ router.post('/register', async (req, res, next) =>{
 });
 
 
+// log out - referred to lesson08 code but added my lang and title
+router.get("/logout", (req, res, next) => {
+    const lang = req.query.lang || "en";
+    let title = "Logout";
+    if (lang === "es") {
+        title = "Cerrar sesión";
+    }
+    req.logout((err) {
+        res.redirect("/?lang=" + lang);
+    });
+    res.render("logout", { title: title, lang: lang });
+});
+
+
 /* GET home page. */
 // add the const lang so user can choose websites main language
 router.get('/', function (req, res) {
