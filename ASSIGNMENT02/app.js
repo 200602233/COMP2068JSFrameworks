@@ -81,7 +81,7 @@ passport.deserializeUser(User.deserializeUser());
 // get url and verify user logged in
 app.use((req, res, next) => {
 
-    res.locals.currentUrl = req.originalUrl;
+    res.locals.currentUrl = req.path;
     res.locals.lang = req.query.lang || 'en';
     res.locals.user = req.user || null;
     next();
