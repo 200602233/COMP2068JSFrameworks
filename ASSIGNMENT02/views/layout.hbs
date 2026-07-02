@@ -112,12 +112,18 @@
             <li class="nav-item">
               <a class="nav-link" href="/categories?lang={{lang}}">Categories</a>
             </li>
+            {{#if user}}
+              <li>
+                <a class="nav-link" href="/logout?lang={{lang}}">Log out</a>
+              </li>
+            {{else}}
             <li>
               <a class="nav-link" href="/login?lang={{lang}}">Login</a>
             </li>
             <li>
               <a class="nav-link" href="/register?lang={{lang}}">Register</a>
             </li>
+            {{/if}}
           {{/if}}
         </ul>
       </div>

@@ -5,6 +5,8 @@ const User = require("../models/user")
 const Project = require("../models/project");
 
 
+// Authentification ROutes
+
 // Login
 router.get('/login', function(req, res, next) {
   const lang = req.query.lang || 'en';
@@ -64,20 +66,33 @@ router.post('/register', async (req, res, next) =>{
   }
 });
 
-
-// log out - referred to lesson08 code but added my lang and title
+// log out - referred to lesson08 code but added my lang
 router.get("/logout", (req, res, next) => {
     const lang = req.query.lang || "en";
-    let title = "Logout";
-    if (lang === "es") {
-        title = "Cerrar sesión";
-    }
-    req.logout((err) {
+    req.logout((err) => {
         res.redirect("/?lang=" + lang);
     });
-    res.render("logout", { title: title, lang: lang });
 });
 
+// Github - lesson08 code
+router.get(
+  "/github",
+  passport.authenticate("github", { scope: ["user.email"] })
+);
+router.get(
+  "/github/callback", 
+  passport.authenticate(
+    "github", 
+    { successRedirect: "/categories", 
+      failureRedirect: "/login"
+    }
+  )
+);
+
+
+
+
+// Pages
 
 /* GET home page. */
 // add the const lang so user can choose websites main language
