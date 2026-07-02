@@ -53,7 +53,7 @@ router.post('/register', async (req, res, next) =>{
   } catch (error){
     console.log(error);
     let message = "Registration failed";
-    if(err.name === "UserExisitsError"){
+    if (error.name === "UserExisitsError"){
       message = "Username already exists";
     }
     // send error not crsah

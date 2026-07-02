@@ -88,6 +88,15 @@ passport.use(new githubStrategy(
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
+// get url and verify user logged in
+app.use((req, res, next) => {
+
+    res.locals.currentUrl = req.originalUrl;
+    res.locals.lang = req.query.lang || 'en';
+    res.locals.user = req.user || null;
+    next();
+
+});
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
@@ -98,15 +107,6 @@ app.use(function(req, res, next) {
   next(createError(404));
 });
 
-// get current URL
-app.use((req, res, next) => {
-
-    res.locals.currentUrl = req.originalUrl;
-    res.locals.lang = req.query.lang || 'en';
-
-    next();
-
-});
 
 // connect to MongoDB using Mongoose
 mongoose

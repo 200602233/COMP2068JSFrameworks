@@ -31,12 +31,18 @@
                 <li>
                   <a class="nav-link" href="/categories?lang={{lang}}">Categorías</a>
                 </li>
-                <li>
-                  <a class="nav-link" href="/login?lang={{lang}}">Iniciar sesión</a>
-                </li>
-                <li>
-                  <a class="nav-link" href="/register?lang={{lang}}">Registrarse</a>
-                </li>
+                {{#if user}}
+                  <li>
+                    <a>Log out</a>
+                  </li>
+                {{else}}
+                  <li>
+                    <a class="nav-link" href="/login?lang={{lang}}">Iniciar sesión</a>
+                  </li>
+                  <li>
+                    <a class="nav-link" href="/register?lang={{lang}}">Registrarse</a>
+                  </li>
+                {{/if}}
               {{else}}
                 <li class="nav-item">
                   <a class="nav-link" href="/?lang={{lang}}">Home</a>
@@ -44,16 +50,30 @@
                 <li class="nav-item">
                   <a class="nav-link" href="/categories?lang={{lang}}">Categories</a>
                 </li>
-                <li>
-                  <a class="nav-link" href="/login?lang={{lang}}">Login</a>
-                </li>
-                <li>
-                  <a class="nav-link" href="/register?lang={{lang}}">Register</a>
-                </li>
+                {{#if user}}
+                  <li>
+                    <a class="nav-link" href="/logout?lang={{lang}}">Log out</a>
+                  </li>
+                {{else}}
+                  <li>
+                    <a class="nav-link" href="/login?lang={{lang}}">Login</a>
+                  </li>
+                  <li>
+                    <a class="nav-link" href="/register?lang={{lang}}">Register</a>
+                  </li>
+                {{/if}}
               {{/if}}
             </ul>
             <!--english or spanish-->
             <ul class="navbar-nav ms-auto d-flex flex-row gap-2">
+              {{#if user}}
+                {{#if (eq lang "es")}}
+                  Bienvenido, {{user.username}}!
+                {{else}}
+                  Welcome, {{user.username}}!
+                {{/if}}
+              {{else}}
+              {{/if}}
               {{#if (eq lang "es")}}
                 <a href="{{currentUrl}}?lang=en"><img src="/images/english-flag.png" class="lang-flag" alt="english flag"/> Inglés</a>
                 <a href="{{currentUrl}}?lang=es"><img src="/images/mexico_flag.png" class="lang-flag" alt="mexico flag"/> Español</a>
