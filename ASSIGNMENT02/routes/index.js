@@ -144,22 +144,30 @@ router.get('/add', async function(req, res, next) {
   if (lang === 'es') {
       title = 'Agregar';
   }
-  const newEntry = new Project({
+  res.render('add', { title: title, lang: lang});
+});
+router.post('/add', async function(req, res, next) {
+  try{
+    const newEntry = new Project({
 
-        firstWord: req.body.firstWord,
-        secondWord: req.body.secondWord,
+        firstEntry: req.body.firstWord,
+        secondEntry: req.body.secondWord,
         pronunciation: req.body.pronunciation,
         usage: req.body.usage,
         category: req.body.category,
         type: req.body.type,
         note: req.body.note
-
     });
-
-    await newEntry.save();
-    res.redirect("/all");
-  res.render('add', { title: title, lang: lang});
-});
+  } catch (error){
+    console.log(error);
+    let message = "Failed to add entry";
+    return res.render("add", {
+      title: "Add",
+      error: error.message
+    });
+  }
+  res.redirect("/all");
+ });
 
 // all page
 router.get('/all', async function(req, res, next) {
