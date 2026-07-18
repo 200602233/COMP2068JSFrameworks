@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 const plmModule = require('passport-local-mongoose');
 const plm = plmModule.default || plmModule;
 
+// used code from lesson 8
 var dataSchemaObj = {
     username: { type: String },
     email: {type: String},
@@ -13,9 +14,6 @@ var dataSchemaObj = {
     created: { type: Date, default: Date.now }, // when was this user record created
 }
 var userSchema = new mongoose.Schema(dataSchemaObj);
-// Use passport-local-mongoose to indicate this is a special authentication model
-// plugin() adds plm functionality to our model
-// i.e. hashing/salting password, and handling authentication attempts
 userSchema.plugin(plm);
 // export the enhanced model
 module.exports = new mongoose.model('User', userSchema);
