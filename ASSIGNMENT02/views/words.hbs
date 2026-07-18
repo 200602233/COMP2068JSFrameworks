@@ -1,26 +1,25 @@
 
 <h1>
-    <{{#if (eq lang "es")}}
+    {{#if (eq lang "es")}}
         Palabras:
     {{else}}
         Words:
-    {{/if}}>
+    {{/if}}
 </h1>
 
 {{!-- div for search and add new button --}}
-<div>
-    <div>
-        <label>
-            {{#if (eq lang "es")}}
-                Buscar:
-            {{else}}
-                Search:
-            {{/if}}
-        </label>
-        <input
+<div class="search-div">
+    <label>
+         {{#if (eq lang "es")}}
+               Buscar:
+          {{else}}
+              Search:
+          {{/if}}
+     </label>
+     <input
         type="text"
         id="searchBar"
-        placeholder="{{#if (eq lang "es")}}Busca algo aquí...{{else}}Search something here...{{/if}}">    </div>
+        placeholder="{{#if (eq lang "es")}}Busca algo aquí...{{else}}Search something here...{{/if}}">
     <a href="/add?lang={{lang}}" class="addBtn">
         {{#if (eq lang "es")}}
             + Agregar

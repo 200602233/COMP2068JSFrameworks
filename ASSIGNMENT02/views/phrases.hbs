@@ -32,15 +32,39 @@
 </div>
 
 {{!-- Table for the list --}}
-<table>
+<table class="table table-bordered">
     <thead>
         <tr>
-            <th></th>
+            {{#if (eq lang "es")}}
+                <th>Español</th>
+                <th>Inglés</th>
+                <th>Categoría</th>
+                <th>Usado en una oración</th>
+                <th>Nota</th>
+                <th>Acciones</th>
+            {{else}}
+                <th>English</th>
+                <th>Spanish</th>
+                <th>Category</th>
+                <th>Used in a Sentence</th>
+                <th>Note</th>
+                <th>Actions</th>
+            {{/if}}
         </tr>
     </thead>
     <tbody>
+        {{#each words}}
         <tr>
-            <td></td>
-        </tr>
+            <td>{{firstEntry}}</td>
+            <td>{{secondEntry}}</td>
+            <td>{{category}}</td>
+            <td>{{usage}}</td>
+            <td>{{note}}</td>
+            <td>
+                <a href="/?lang={{../lang}}">Edit</a>
+                <a href="/">Delete</a>
+            </td>
+        </tr> 
+        {{/each}}
     </tbody>
 </table>

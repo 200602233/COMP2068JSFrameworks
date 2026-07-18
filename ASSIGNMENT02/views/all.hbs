@@ -8,7 +8,7 @@
 </h1>
 
 {{!-- div for search and add new button --}}
-<div>
+<div class="search-div">
     <label>
         {{#if (eq lang "es")}}
             Buscar:
@@ -31,22 +31,22 @@
 </div>
 
 {{!-- Table for the list --}}
-<table class="all-table table-bordered">
+<table class="table table-bordered">
     <thead>
         <tr>
             {{#if (eq lang "es")}}
                 <th>Español</th>
                 <th>Inglés</th>
-                <th>Tipo</th>
                 <th>Categoría</th>
+                <th>Tipo</th>
                 <th>Usado en una oración</th>
                 <th>Nota</th>
                 <th>Acciones</th>
             {{else}}
                 <th>English</th>
                 <th>Spanish</th>
-                <th>Type</th>
                 <th>Category</th>
+                <th>Type</th>
                 <th>Used in a Sentence</th>
                 <th>Note</th>
                 <th>Actions</th>
@@ -58,8 +58,8 @@
         <tr>
             <td>{{firstEntry}}</td>
             <td>{{secondEntry}}</td>
-            <td>{{type}}</td>
             <td>{{category}}</td>
+            <td>{{type}}</td>
             <td>{{usage}}</td>
             <td>{{note}}</td>
             <td>
