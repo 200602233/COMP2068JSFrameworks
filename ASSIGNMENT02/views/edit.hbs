@@ -1,0 +1,138 @@
+
+<h1>{{title}}</h1>
+
+<form method="POST">
+    <fieldset>
+        {{!-- hidden lang --}}
+        <input type="hidden" name="lang" value="{{lang}}">
+
+        {{!-- if to swap the frist entry with second depending on langauge --}}
+        {{!-- same logic as the tables for switching --}}
+        {{#if (eq this.language "en")}}
+            {{#if (eq lang "en")}}
+                <label for="firstEntry">English</label>
+                <br>
+                <input type="text" id="firstEntry" name="firstEntry" value="{{entry.firstEntry}}">
+                <br><br>
+                <label for="secondEntry">Spanish</label>
+                <br>
+                <input type="text" id="secondEntry" name="secondEntry" value="{{entry.secondEntry}}">
+            {{else}}
+                <label for="firstEntry">Español</label>
+                <br>
+                <input type="text" id="firstEntry" name="firstEntry" value="{{entry.secondEntry}}">
+                <br><br>
+                <label for="secondEntry">Inglés</label>
+                <br>
+                <input type="text" id="secondEntry" name="secondEntry" value="{{entry.firstEntry}}">
+            {{/if}}
+        {{else}}
+            {{#if (eq lang "es")}}
+                <label for="firstEntry">Español</label>
+                <br>
+                <input type="text" id="firstEntry"  name="firstEntry" value="{{entry.secondEntry}}">
+                <br><br>
+                <label for="secondEntry">Inglés</label>
+                <br>
+                <input type="text" id="secondEntry" name="secondEntry" value="{{entry.firstEntry}}">
+            {{else}}
+                <label for="firstEntry">English</label>
+                <br>
+                <input type="text" id="firstEntry" name="firstEntry" value="{{entry.firstEntry}}">
+                <br><br>
+                <label for="secondEntry">Spanish</label>
+                <br>
+                <input type="text" id="secondEntry" name="secondEntry" value="{{entry.secondEntry}}">
+            {{/if}}
+        {{/if}}
+
+        <br><br>
+        <label>
+            {{#if (eq lang "es")}}
+                Categoría
+            {{else}}
+                Category
+            {{/if}}
+        </label>
+        <br>
+        <select id="{{entry.category}}" name="category">
+            {{#if (eq lang "es")}}
+                <option>Saludos</option>
+                <option>Viajes</option>
+                <option>Comida</option>
+                <option>Animales</option>
+                <option>Escuela y Trabajo</option>
+                <option>Familia</option>
+                <option>Colores</option>
+                <option>Números</option>
+                <option>Otro</option>
+            {{else}}
+                <option>Greetings</option>
+                <option>Travel</option>
+                <option>Food</option>
+                <option>Animals</option>
+                <option>School & Work</option>
+                <option>Family</option>
+                <option>Colours</option>
+                <option>Numbers</option>
+                <option>Other</option>
+            {{/if}}
+        </select>
+        <br><br>
+
+        <label>
+        {{#if (eq lang "es")}}
+            Tipo
+        {{else}}
+            Type
+        {{/if}}
+    </label>
+    {{!-- same as add hbs --}}
+    <select id="{{entry.type}}" name="type">
+        <option value="Word">
+            {{#if (eq lang "es")}}
+                Palabra
+            {{else}}
+                Word
+            {{/if}}
+        </option>
+        <option value="Phrase">
+            {{#if (eq lang "es")}}
+                Frase
+            {{else}}
+                Phrase
+            {{/if}}
+        </option>
+    </select>
+        <br><br>
+
+        <label>
+            {{#if (eq lang "es")}}
+                Usado en una oración
+            {{else}}
+                Used in a sentence
+            {{/if}}
+        </label>
+        <br>
+        <input
+        type="text"
+        name="usage"
+        id="{{entry.usage}}">
+        <br><br>
+
+        <label>
+            {{#if (eq lang "es")}}
+                Nota
+            {{else}}
+                Note
+            {{/if}}
+        </label>
+        <br>
+        <textarea
+        name="note"
+        id="{{entry.note}}"
+        rows="4">
+        </textarea>
+        <br><br>
+    </fieldset>
+</form>
