@@ -55,12 +55,6 @@
     </thead>
     <tbody>
         {{#each words}}
-        <p>
-        Current: {{../lang}} |
-        Saved: {{this.language}} |
-        First: {{this.firstEntry}} |
-        Second: {{this.secondEntry}}
-        </p>
         <tr>
             {{!-- english and spanish switch --}}
             {{#if (eq this.language "en")}}
@@ -81,12 +75,12 @@
                 {{/if}}
             {{/if}}
             {{#if (eq ../lang "en")}}
-                <td>{{this.category.english}}</td>
+                <td>{{this.category}}</td>
                 <td>{{this.type}}</td>
-                <td>{{this.usage.english}}</td>
-                <td>{{this.note.english}}</td>
+                <td>{{this.usage}}</td>
+                <td>{{this.note}}</td>
             {{else}}
-                <td>{{this.category.spanish}}</td>
+                <td>{{this.category}}</td>
                 <td>
                     {{#if (eq this.type "Word")}}
                         {{#if (eq ../lang "es")}}
@@ -102,8 +96,8 @@
                         {{/if}}
                     {{/if}}
                 </td>
-                <td>{{this.usage.spanish}}</td>
-                <td>{{this.note.spanish}}</td>
+                <td>{{this.usage}}</td>
+                <td>{{this.note}}</td>
             {{/if}}
             <td>
                 {{!-- edit and delete --}}
