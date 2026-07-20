@@ -7,6 +7,9 @@
 </h1>
 
 <form method="post" class="addForm">
+    {{!-- hidden lang input --}}
+    <input type="hidden" name="lang" value="{{lang}}">
+    
     {{!-- Type: word or phrase --}}
     <label>
         {{#if (eq lang "es")}}
@@ -16,14 +19,14 @@
         {{/if}}
     </label>
     <select id="type" name="type">
-        <option value="word">
+        <option value="Word">
             {{#if (eq lang "es")}}
                 Palabra
             {{else}}
                 Word
             {{/if}}
         </option>
-        <option value="phrase">
+        <option value="Phrase">
             {{#if (eq lang "es")}}
                 Frase
             {{else}}
