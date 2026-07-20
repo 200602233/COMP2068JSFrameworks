@@ -17,23 +17,14 @@ const schemaObject = {
         required: true,
         enum: ["en", "es"]
     },
-    usage: {
-        english: String,
-        spanish: String
-    },
-    category: {
-        english: String,
-        spanish: String
-    },
+    usage: String,
+    category: String,
     type: {
         type: String,
         enum: ["Word", "Phrase"],
         required: true
     },
-    note: {
-        english: String,
-        spanish: String
-    }
+    note: String
 }
 
 
