@@ -12,6 +12,11 @@ const schemaObject = {
         type: String,
         required: true
     },
+    language: {
+        type: String,
+        required: true,
+        enum: ["en", "es"]
+    },
     usage: String,
     category: String,
     type: {

@@ -100,11 +100,13 @@ router.get('/add', async function(req, res, next) {
   }
   res.render('add', { title: title, lang: lang});
 });router.post('/add', async function(req, res, next) {
+  const lang = req.query.lang || 'en';
   try{
     const newEntry = new Project({
       // create new entry
       firstEntry: req.body.firstEntry,
       secondEntry: req.body.secondEntry,
+      language: req.body.lang,
       usage: req.body.usage,
       category: req.body.category,
       type: req.body.type,
@@ -114,42 +116,38 @@ router.get('/add', async function(req, res, next) {
   } catch (error){
     console.log(error);
     let message = "Failed to add entry";
-    return res.render("add", {
-      title: "Add",
-      error: error.message
-    });
+    let title = 'Add';
+    if (lang === 'es') {
+      title = 'Agregar';
+    }
+    return res.render("add", {title, error: error.message, lang: lang});
   }
   res.redirect("/all");
  });
 
  // update/edit
 router.get("/edit/:id", async function(req, res, next) {
-  try{
-    const words = await Project.findById(req.params.id);
-    res.render("edit", { title: "Edit", words, lang: req.query.lang || 'en'});
-  } catch (error){
-    console.log(error);
-    res.redirect("/all");
-  }
+  const entry = await Project.findById(req.params.id);
+  res.render("edit", { title: "Edit", entry, lang: req.query.lang || 'en'});
 });
 
 router.post("/edit/:id", async function(req, res, next) {
+  // lesson08 code used
   try{
-    await Project.findByIdAndUpdate(req.params.id, {
-      // overwrite data
-      firstEntry: req.body.firstEntry,
-      secondEntry: req.body.secondEntry,
-      usage: req.body.usage,
-      category: req.body.category,
-      type: req.body.type,
-      note: req.body.note
-    });
-      } catch (error){
-        // tab filled out code
-        console.log(error);
-      }
+    const project = await Project.findByIdAndUpdate(req.params.id);
+    project.firstEntry = req.body.firstEntry;
+    project.secondEntry = req.body.secondEntry;
+    project.usage = req.body.usage;
+    project.category = req.body.category;
+    project.type = req.body.type;
+    project.note = req.body.note;
+    await project.save();
+  } catch (error){
+      // tab filled out code
+      console.log(error);
+  }
       res.redirect("/all");
-    });
+});
 
  // delete
  router.get("/delete/:id", async function(req, res, next) {
