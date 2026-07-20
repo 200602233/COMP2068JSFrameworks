@@ -55,16 +55,39 @@
     </thead>
     <tbody>
         {{#each words}}
+        <p>
+        Current: {{../lang}} |
+        Saved: {{this.language}} |
+        First: {{this.firstEntry}} |
+        Second: {{this.secondEntry}}
+        </p>
         <tr>
-            <td>{{firstEntry}}</td>
-            <td>{{secondEntry}}</td>
+            {{!-- english and spanish switch --}}
+            {{#if (eq this.language "en")}}
+                {{#if (eq ../lang "en")}}
+                    <td>{{this.firstEntry}}</td>
+                    <td>{{this.secondEntry}}</td>
+                {{else}}
+                    <td>{{this.secondEntry}}</td>
+                    <td>{{this.firstEntry}}</td>
+                {{/if}}
+            {{else}}
+                {{#if (eq ../lang "es")}}
+                    <td>{{this.firstEntry}}</td>
+                    <td>{{this.secondEntry}}</td>
+                {{else}}
+                    <td>{{this.secondEntry}}</td>
+                    <td>{{this.firstEntry}}</td>
+                {{/if}}
+            {{/if}}
             <td>{{category}}</td>
             <td>{{type}}</td>
             <td>{{usage}}</td>
             <td>{{note}}</td>
             <td>
-                <a href="/?lang={{../lang}}">Edit</a>
-                <a href="/">Delete</a>
+                {{!-- edit and delete --}}
+                <a href="/edit/{{_id}}?lang={{../lang}}" class="actBtn">{{#if (eq ../lang "es")}}Editar{{else}}Edit{{/if}}</a>
+                <a href="/delete/{{_id}}?lang={{../lang}}" onclick="return confirmDelete();" class="actBtn">{{#if (eq ../lang "es")}}Eliminar{{else}}Delete{{/if}}</a>
             </td>
         </tr> 
         {{/each}}
