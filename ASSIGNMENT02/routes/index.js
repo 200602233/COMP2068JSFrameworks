@@ -4,8 +4,9 @@ const passport = require("passport");
 const User = require("../models/user")
 const Project = require("../models/project");
 
-
 // Authentification ROutes
+const ensureAuthenticated = require("../extensions/authentication");
+
 
 // Login
 router.get('/login', function(req, res, next) {
@@ -92,14 +93,14 @@ router.get(
 
 // CRUD
 // adding form page (create)
-router.get('/add', async function(req, res, next) {
+router.get('/add', ensureAuthenticated, async function(req, res, next) {
   const lang = req.query.lang || 'en';
   let title = 'Add';
   if (lang === 'es') {
       title = 'Agregar';
   }
   res.render('add', { title: title, lang: lang});
-});router.post('/add', async function(req, res, next) {
+});router.post('/add', ensureAuthenticated, async function(req, res, next) {
   const lang = req.query.lang || 'en';
   try{
     const newEntry = new Project({
@@ -107,6 +108,7 @@ router.get('/add', async function(req, res, next) {
       firstEntry: req.body.firstEntry,
       secondEntry: req.body.secondEntry,
       language: req.body.lang,
+      user: req.user._id,
       usage: req.body.usage,
       category: req.body.category,
       type: req.body.type,
@@ -126,7 +128,7 @@ router.get('/add', async function(req, res, next) {
  });
 
  // update/edit
-router.get("/edit/:id", async function(req, res, next) {
+router.get("/edit/:id", ensureAuthenticated, async function(req, res, next) {
   const entry = await Project.findById(req.params.id);
   const lang = req.query.lang || 'en';
   let title = 'Edit Entry';
@@ -136,12 +138,14 @@ router.get("/edit/:id", async function(req, res, next) {
   res.render("edit", { title: title, entry, lang: req.query.lang || 'en'});
 });
 
-router.post("/edit/:id", async function(req, res, next) {
+router.post("/edit/:id", ensureAuthenticated, async function(req, res, next) {
   // lesson08 code used
   try{
     const project = await Project.findByIdAndUpdate(req.params.id);
     project.firstEntry = req.body.firstEntry;
     project.secondEntry = req.body.secondEntry;
+    project.language = req.body.lang;
+    project.user= req.user._id;
     project.usage = req.body.usage;
     project.category = req.body.category;
     project.type = req.body.type;
@@ -155,7 +159,7 @@ router.post("/edit/:id", async function(req, res, next) {
 });
 
  // delete
- router.get("/delete/:id", async function(req, res, next) {
+ router.get("/delete/:id", ensureAuthenticated, async function(req, res, next) {
   try{
     // fidn id and await for it to be deleted
     await Project.findByIdAndDelete(req.params.id);
@@ -181,7 +185,7 @@ router.get('/', function (req, res) {
 });
 
 // Category page
-router.get('/categories', function(req, res, next) {
+router.get('/categories', ensureAuthenticated, function(req, res, next) {
   const lang = req.query.lang || 'en';
   let title = 'Categories';
   if (lang === 'es') {
@@ -191,9 +195,9 @@ router.get('/categories', function(req, res, next) {
 });
 
 // Words page
-router.get('/words', async function(req, res, next) {
+router.get('/words', ensureAuthenticated, async function(req, res, next) {
   const lang = req.query.lang || 'en';
-  const words = await Project.find({type: "Word"});
+  const words = await Project.find({type: "Word", user: req.user._id});
   let title = 'Words';
   if (lang === 'es') {
       title = 'Palabras';
@@ -202,9 +206,9 @@ router.get('/words', async function(req, res, next) {
 });
 
 // phrases apge
-router.get('/phrases', async function(req, res, next) {
+router.get('/phrases', ensureAuthenticated, async function(req, res, next) {
   const lang = req.query.lang || 'en';
-  const words = await Project.find({type: "Phrase"});
+  const words = await Project.find({type: "Phrase", user: req.user._id});
   let title = 'Phrases';
   if (lang === 'es') {
       title = 'Frases';
@@ -214,9 +218,11 @@ router.get('/phrases', async function(req, res, next) {
 
 
 // all page
-router.get('/all', async function(req, res, next) {
+router.get('/all', ensureAuthenticated, async function(req, res, next) {
   const lang = req.query.lang || 'en';
-  const words = await Project.find();
+  const words = await Project.find({
+    user: req.user._id
+  });
   let title = 'All';
   if (lang === 'es') {
       title = 'Todo';

@@ -17,6 +17,11 @@ const schemaObject = {
         required: true,
         enum: ["en", "es"]
     },
+    user:{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "User",
+        required: true
+    },
     usage: String,
     category: String,
     type: {
