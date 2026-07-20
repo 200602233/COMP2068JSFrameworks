@@ -2,7 +2,7 @@
 
 const mongoose = require("mongoose");
 
-// schema
+// schema for entries
 const schemaObject = {
     firstEntry: {
         type: String,
@@ -12,7 +12,6 @@ const schemaObject = {
         type: String,
         required: true
     },
-    pronunciation: String,
     usage: String,
     category: String,
     type: {
@@ -22,13 +21,7 @@ const schemaObject = {
     },
     note: String
 }
-// translation in add
-const entrySchema = new mongoose.Schema({
-    spanish: String,
-    english: String,
-    type: String,
-    category: String
-});
+
 
 // create model adn explore
 const mongooseSchema = new mongoose.Schema(schemaObject);
