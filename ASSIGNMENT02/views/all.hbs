@@ -80,10 +80,31 @@
                     <td>{{this.firstEntry}}</td>
                 {{/if}}
             {{/if}}
-            <td>{{category}}</td>
-            <td>{{type}}</td>
-            <td>{{usage}}</td>
-            <td>{{note}}</td>
+            {{#if (eq ../lang "en")}}
+                <td>{{this.category.english}}</td>
+                <td>{{this.type}}</td>
+                <td>{{this.usage.english}}</td>
+                <td>{{this.note.english}}</td>
+            {{else}}
+                <td>{{this.category.spanish}}</td>
+                <td>
+                    {{#if (eq this.type "Word")}}
+                        {{#if (eq ../lang "es")}}
+                            Palabra
+                        {{else}}
+                            Word
+                        {{/if}}
+                    {{else}}
+                        {{#if (eq ../lang "es")}}
+                            Frase
+                        {{else}}
+                            Phrase
+                        {{/if}}
+                    {{/if}}
+                </td>
+                <td>{{this.usage.spanish}}</td>
+                <td>{{this.note.spanish}}</td>
+            {{/if}}
             <td>
                 {{!-- edit and delete --}}
                 <a href="/edit/{{_id}}?lang={{../lang}}" class="actBtn">{{#if (eq ../lang "es")}}Editar{{else}}Edit{{/if}}</a>
