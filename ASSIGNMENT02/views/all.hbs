@@ -1,110 +1,124 @@
 
-<h1>
-    {{#if (eq lang "es")}}
-        Todas las palabras y frases:
-    {{else}}
-        All Words and Phrases:
-    {{/if}}
-</h1>
-
-{{!-- div for search and add new button --}}
-<div class="search-div">
-    <label>
+{{#if user}}
+    <h1>
         {{#if (eq lang "es")}}
-            Buscar:
+            Todas las palabras y frases:
         {{else}}
-            Search:
+            All Words and Phrases:
         {{/if}}
-    </label>
-    <input
-    type="text"
-    id="searchBar"
-    placeholder="{{#if (eq lang "es")}}Busca algo aquí...{{else}}Search something here...{{/if}}">
+    </h1>
 
-    <a href="/add?lang={{lang}}" class="addBtn">
-        {{#if (eq lang "es")}}
-            + Agregar
-        {{else}}
-            + Add
-        {{/if}}
-    </a>
-</div>
-
-{{!-- Table for the list --}}
-<table class="table table-bordered">
-    <thead>
-        <tr>
+    {{!-- div for search and add new button --}}
+    <div class="search-div">
+        <label>
             {{#if (eq lang "es")}}
-                <th>Español</th>
-                <th>Inglés</th>
-                <th>Categoría</th>
-                <th>Tipo</th>
-                <th>Usado en una oración</th>
-                <th>Nota</th>
-                <th>Acciones</th>
+                Buscar:
             {{else}}
-                <th>English</th>
-                <th>Spanish</th>
-                <th>Category</th>
-                <th>Type</th>
-                <th>Used in a Sentence</th>
-                <th>Note</th>
-                <th>Actions</th>
+                Search:
             {{/if}}
-        </tr>
-    </thead>
-    <tbody>
-        {{#each words}}
-        <tr>
-            {{!-- english and spanish switch --}}
-            {{#if (eq this.language "en")}}
-                {{#if (eq ../lang "en")}}
-                    <td>{{this.firstEntry}}</td>
-                    <td>{{this.secondEntry}}</td>
-                {{else}}
-                    <td>{{this.secondEntry}}</td>
-                    <td>{{this.firstEntry}}</td>
-                {{/if}}
+        </label>
+        <input
+        type="text"
+        id="searchBar"
+        placeholder="{{#if (eq lang "es")}}Busca algo aquí...{{else}}Search something here...{{/if}}">
+
+        <a href="/add?lang={{lang}}" class="addBtn">
+            {{#if (eq lang "es")}}
+                + Agregar
             {{else}}
-                {{#if (eq ../lang "es")}}
-                    <td>{{this.firstEntry}}</td>
-                    <td>{{this.secondEntry}}</td>
-                {{else}}
-                    <td>{{this.secondEntry}}</td>
-                    <td>{{this.firstEntry}}</td>
-                {{/if}}
+                + Add
             {{/if}}
-            {{#if (eq ../lang "en")}}
-                <td>{{this.category}}</td>
-                <td>{{this.type}}</td>
-                <td>{{this.usage}}</td>
-                <td>{{this.note}}</td>
-            {{else}}
-                <td>{{this.category}}</td>
-                <td>
-                    {{#if (eq this.type "Word")}}
-                        {{#if (eq ../lang "es")}}
-                            Palabra
-                        {{else}}
-                            Word
-                        {{/if}}
+        </a>
+    </div>
+
+    {{!-- Table for the list --}}
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                {{#if (eq lang "es")}}
+                    <th>Español</th>
+                    <th>Inglés</th>
+                    <th>Categoría</th>
+                    <th>Tipo</th>
+                    <th>Usado en una oración</th>
+                    <th>Nota</th>
+                    <th>Acciones</th>
+                {{else}}
+                    <th>English</th>
+                    <th>Spanish</th>
+                    <th>Category</th>
+                    <th>Type</th>
+                    <th>Used in a Sentence</th>
+                    <th>Note</th>
+                    <th>Actions</th>
+                {{/if}}
+            </tr>
+        </thead>
+        <tbody>
+            {{#each words}}
+            <tr>
+                {{!-- english and spanish switch --}}
+                {{#if (eq this.language "en")}}
+                    {{#if (eq ../lang "en")}}
+                        <td>{{this.firstEntry}}</td>
+                        <td>{{this.secondEntry}}</td>
                     {{else}}
-                        {{#if (eq ../lang "es")}}
-                            Frase
-                        {{else}}
-                            Phrase
-                        {{/if}}
+                        <td>{{this.secondEntry}}</td>
+                        <td>{{this.firstEntry}}</td>
                     {{/if}}
+                {{else}}
+                    {{#if (eq ../lang "es")}}
+                        <td>{{this.firstEntry}}</td>
+                        <td>{{this.secondEntry}}</td>
+                    {{else}}
+                        <td>{{this.secondEntry}}</td>
+                        <td>{{this.firstEntry}}</td>
+                    {{/if}}
+                {{/if}}
+                {{#if (eq ../lang "en")}}
+                    <td>{{this.category}}</td>
+                    <td>{{this.type}}</td>
+                    <td>{{this.usage}}</td>
+                    <td>{{this.note}}</td>
+                {{else}}
+                    <td>{{this.category}}</td>
+                    <td>
+                        {{#if (eq this.type "Word")}}
+                            {{#if (eq ../lang "es")}}
+                                Palabra
+                            {{else}}
+                                Word
+                            {{/if}}
+                        {{else}}
+                            {{#if (eq ../lang "es")}}
+                                Frase
+                            {{else}}
+                                Phrase
+                            {{/if}}
+                        {{/if}}
+                    </td>
+                    <td>{{this.usage}}</td>
+                    <td>{{this.note}}</td>
+                {{/if}}
+                <td>
+                    {{!-- edit and delete --}}
+                    <a href="/edit/{{_id}}?lang={{../lang}}" class="actBtn">{{#if (eq ../lang "es")}}Editar{{else}}Edit{{/if}}</a>
+                    <a href="/delete/{{_id}}?lang={{../lang}}" onclick="return confirmDelete();" class="actBtn">{{#if (eq ../lang "es")}}Eliminar{{else}}Delete{{/if}}</a>
                 </td>
-                <td>{{this.usage}}</td>
-                <td>{{this.note}}</td>
-            {{/if}}
-            <td>
-                {{!-- edit and delete --}}
-                <a href="/edit/{{_id}}?lang={{../lang}}" class="actBtn">{{#if (eq ../lang "es")}}Editar{{else}}Edit{{/if}}</a>
-                <a href="/delete/{{_id}}?lang={{../lang}}" onclick="return confirmDelete();" class="actBtn">{{#if (eq ../lang "es")}}Eliminar{{else}}Delete{{/if}}</a>
-            </td>
-        </tr> 
-        {{/each}}
-    </tbody>
-</table>
+            </tr> 
+            {{/each}}
+        </tbody>
+    </table>
+
+
+{{else}}
+    <h1 class="login-userMsg">
+        {{#if (eq lang "es")}}
+            Inicia sesión para ver las categorías
+        {{else}}
+            Please <a href="/login?lang={{lang}}">{{#if (eq lang "es")}}iniciar sesión {{else}}log in {{/if}}</a> to view categories and save words and phrases.
+        {{/if}}
+    </h1>
+    {{!-- maybe add image here so not so blank --}}
+    <img src="/images/logo.png"/>
+{{/if}}

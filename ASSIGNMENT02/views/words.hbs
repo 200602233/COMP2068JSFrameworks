@@ -1,68 +1,82 @@
 
-<h1>
-    {{#if (eq lang "es")}}
-        Palabras:
-    {{else}}
-        Words:
-    {{/if}}
-</h1>
-
-{{!-- div for search and add new button --}}
-<div class="search-div">
-    <label>
-         {{#if (eq lang "es")}}
-               Buscar:
-          {{else}}
-              Search:
-          {{/if}}
-     </label>
-     <input
-        type="text"
-        id="searchBar"
-        placeholder="{{#if (eq lang "es")}}Busca algo aquí...{{else}}Search something here...{{/if}}">
-    <a href="/add?lang={{lang}}" class="addBtn">
+{{#if user}}
+    <h1>
         {{#if (eq lang "es")}}
-            + Agregar
+            Palabras:
         {{else}}
-            + Add
+            Words:
         {{/if}}
-    </a>
-</div>
+    </h1>
 
-{{!-- Table for the list --}}
-<table class="table table-bordered">
-    <thead>
-        <tr>
+    {{!-- div for search and add new button --}}
+    <div class="search-div">
+        <label>
             {{#if (eq lang "es")}}
-                <th>Español</th>
-                <th>Inglés</th>
-                <th>Categoría</th>
-                <th>Usado en una oración</th>
-                <th>Nota</th>
-                <th>Acciones</th>
+                Buscar:
             {{else}}
-                <th>English</th>
-                <th>Spanish</th>
-                <th>Category</th>
-                <th>Used in a Sentence</th>
-                <th>Note</th>
-                <th>Actions</th>
+                Search:
             {{/if}}
-        </tr>
-    </thead>
-    <tbody>
-        {{#each words}}
-        <tr>
-            <td>{{firstEntry}}</td>
-            <td>{{secondEntry}}</td>
-            <td>{{category}}</td>
-            <td>{{usage}}</td>
-            <td>{{note}}</td>
-            <td>
-                <a href="/?lang={{../lang}}">Edit</a>
-                <a href="/">Delete</a>
-            </td>
-        </tr> 
-        {{/each}}
-    </tbody>
-</table>
+        </label>
+        <input
+            type="text"
+            id="searchBar"
+            placeholder="{{#if (eq lang "es")}}Busca algo aquí...{{else}}Search something here...{{/if}}">
+        <a href="/add?lang={{lang}}" class="addBtn">
+            {{#if (eq lang "es")}}
+                + Agregar
+            {{else}}
+                + Add
+            {{/if}}
+        </a>
+    </div>
+
+    {{!-- Table for the list --}}
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                {{#if (eq lang "es")}}
+                    <th>Español</th>
+                    <th>Inglés</th>
+                    <th>Categoría</th>
+                    <th>Usado en una oración</th>
+                    <th>Nota</th>
+                    <th>Acciones</th>
+                {{else}}
+                    <th>English</th>
+                    <th>Spanish</th>
+                    <th>Category</th>
+                    <th>Used in a Sentence</th>
+                    <th>Note</th>
+                    <th>Actions</th>
+                {{/if}}
+            </tr>
+        </thead>
+        <tbody>
+            {{#each words}}
+            <tr>
+                <td>{{firstEntry}}</td>
+                <td>{{secondEntry}}</td>
+                <td>{{category}}</td>
+                <td>{{usage}}</td>
+                <td>{{note}}</td>
+                <td>
+                    <a href="/?lang={{../lang}}">Edit</a>
+                    <a href="/">Delete</a>
+                </td>
+            </tr> 
+            {{/each}}
+        </tbody>
+    </table>
+
+
+{{else}}
+    <h1 class="login-userMsg">
+        {{#if (eq lang "es")}}
+            Inicia sesión para ver las categorías
+        {{else}}
+            Please <a href="/login?lang={{lang}}">{{#if (eq lang "es")}}iniciar sesión {{else}}log in {{/if}}</a> to view categories and save words and phrases.
+        {{/if}}
+    </h1>
+    {{!-- maybe add image here so not so blank --}}
+    <img src="/images/logo.png"/>
+{{/if}}

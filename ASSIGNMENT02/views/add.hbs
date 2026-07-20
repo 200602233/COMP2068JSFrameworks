@@ -1,162 +1,178 @@
-<h1 class="h1-add">
-    {{#if (eq lang "es")}}
-        Añadir nueva Palabra / Frase:
-    {{else}}
-        Add new Word / Phrase:
-    {{/if}}
-</h1>
 
-<form method="post" class="addForm">
-    {{!-- hidden lang input --}}
-    <input type="hidden" name="lang" value="{{lang}}">
-    
-    {{!-- Type: word or phrase --}}
-    <label>
+{{#if user}}
+
+    <h1 class="h1-add">
         {{#if (eq lang "es")}}
-            Tipo
+            Añadir nueva Palabra / Frase:
         {{else}}
-            Type
+            Add new Word / Phrase:
         {{/if}}
-    </label>
-    <select id="type" name="type">
-        <option value="Word">
+    </h1>
+
+    <form method="post" class="addForm">
+        {{!-- hidden lang input --}}
+        <input type="hidden" name="lang" value="{{lang}}">
+
+        {{!-- Type: word or phrase --}}
+        <label>
             {{#if (eq lang "es")}}
-                Palabra
+                Tipo
             {{else}}
-                Word
+                Type
             {{/if}}
-        </option>
-        <option value="Phrase">
+        </label>
+        <select id="type" name="type">
+            <option value="Word">
+                {{#if (eq lang "es")}}
+                    Palabra
+                {{else}}
+                    Word
+                {{/if}}
+            </option>
+            <option value="Phrase">
+                {{#if (eq lang "es")}}
+                    Frase
+                {{else}}
+                    Phrase
+                {{/if}}
+            </option>
+        </select>
+        <br><br>
+        {{!-- Englsih word/phrase entered --}}
+        <label>
             {{#if (eq lang "es")}}
-                Frase
+                * Español
             {{else}}
-                Phrase
+                * English
             {{/if}}
-        </option>
-    </select>
-    <br><br>
-    {{!-- Englsih word/phrase entered --}}
-    <label>
-        {{#if (eq lang "es")}}
-            * Español
-        {{else}}
-            * English
-        {{/if}}
-    </label>
-    <br>
-    <input
-        type="text"
-        id="firstEntry"
-        name="firstEntry"
-        required>
-    <br><br>
-    {{!-- Spanisg word entered --}}
-    <label>
-        {{#if (eq lang "es")}}
-            * Inglés (sugerencias automáticas)
-        {{else}}
-            * Spanish (auto suggestion)
-        {{/if}}
-    </label>
-    <br>
-    <input
-        type="text"
-        id="secondEntry"
-        name="secondEntry"
-        required>
-    <br><br>
+        </label>
+        <br>
+        <input
+            type="text"
+            id="firstEntry"
+            name="firstEntry"
+            required>
+        <br><br>
+        {{!-- Spanisg word entered --}}
+        <label>
+            {{#if (eq lang "es")}}
+                * Inglés (sugerencias automáticas)
+            {{else}}
+                * Spanish (auto suggestion)
+            {{/if}}
+        </label>
+        <br>
+        <input
+            type="text"
+            id="secondEntry"
+            name="secondEntry"
+            required>
+        <br><br>
 
-    <label>
-        {{#if (eq lang "es")}}
-            Categoría
-        {{else}}
-            Category
-        {{/if}}
-    </label>
-    <br>
-    <select id="category" name="category">
-        {{#if (eq lang "es")}}
-            <option>Saludos</option>
-            <option>Viajes</option>
-            <option>Comida</option>
-            <option>Animales</option>
-            <option>Escuela y Trabajo</option>
-            <option>Familia</option>
-            <option>Colores</option>
-            <option>Números</option>
-            <option>Otro</option>
-        {{else}}
-            <option>Greetings</option>
-            <option>Travel</option>
-            <option>Food</option>
-            <option>Animals</option>
-            <option>School & Work</option>
-            <option>Family</option>
-            <option>Colours</option>
-            <option>Numbers</option>
-            <option>Other</option>
-        {{/if}}
-    </select>
-    <br><br>
+        <label>
+            {{#if (eq lang "es")}}
+                Categoría
+            {{else}}
+                Category
+            {{/if}}
+        </label>
+        <br>
+        <select id="category" name="category">
+            {{#if (eq lang "es")}}
+                <option>Saludos</option>
+                <option>Viajes</option>
+                <option>Comida</option>
+                <option>Animales</option>
+                <option>Escuela y Trabajo</option>
+                <option>Familia</option>
+                <option>Colores</option>
+                <option>Números</option>
+                <option>Otro</option>
+            {{else}}
+                <option>Greetings</option>
+                <option>Travel</option>
+                <option>Food</option>
+                <option>Animals</option>
+                <option>School & Work</option>
+                <option>Family</option>
+                <option>Colours</option>
+                <option>Numbers</option>
+                <option>Other</option>
+            {{/if}}
+        </select>
+        <br><br>
 
-    <label>
-        {{#if (eq lang "es")}}
-            Usado en una oración:
-        {{else}}
-            Used in a sentence:
-        {{/if}}
-    </label>
-    <br>
-    <input
-        type="text"
-        name="usage"
-        id="usage">
-    <br><br>
+        <label>
+            {{#if (eq lang "es")}}
+                Usado en una oración:
+            {{else}}
+                Used in a sentence:
+            {{/if}}
+        </label>
+        <br>
+        <input
+            type="text"
+            name="usage"
+            id="usage">
+        <br><br>
 
-    <label>
-        {{#if (eq lang "es")}}
-            Nota:
-        {{else}}
-            Note:
-        {{/if}}
-    </label>
-    <br>
-    <textarea
-        name="note"
-        id="note"
-        rows="4"></textarea>
-    <br><br>
+        <label>
+            {{#if (eq lang "es")}}
+                Nota:
+            {{else}}
+                Note:
+            {{/if}}
+        </label>
+        <br>
+        <textarea
+            name="note"
+            id="note"
+            rows="4"></textarea>
+        <br><br>
 
-    <button type="submit">
-        {{#if (eq lang "es")}}
-            Guardar
-        {{else}}
-            Save Entry
-        {{/if}}
-    </button>
-</form>
+        <button type="submit">
+            {{#if (eq lang "es")}}
+                Guardar
+            {{else}}
+                Save Entry
+            {{/if}}
+        </button>
+    </form>
 
-<script>
-    // event listener to hear when user types abd enters a word, then once they click out of he box, a suggested word will appear
-    // chnaged to blur so if user uses suggestions from previous submissions, it translates successfully
-    document.getElementById("firstEntry").addEventListener("blur", async function () {
-        const text = this.value;
-        const lang = "{{lang}}";
-        if (!text) return;
+    <script>
+        // event listener to hear when user types abd enters a word, then once they click out of he box, a suggested word will appear
+        // chnaged to blur so if user uses suggestions from previous submissions, it translates successfully
+        document.getElementById("firstEntry").addEventListener("blur", async function () {
+            const text = this.value;
+            const lang = "{{lang}}";
+            if (!text) return;
 
-        // fetch api for azure translator to auto translate the second word into the opposite language of the first box
-        const response = await fetch("/api/translate", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({
-                text: text,
-                lang: lang
-            })
+            // fetch api for azure translator to auto translate the second word into the opposite language of the first box
+            const response = await fetch("/api/translate", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    text: text,
+                    lang: lang
+                })
+            });
+            const data = await response.json();
+            // adds translated word into secondEntry box
+            document.getElementById("secondEntry").value = data.translation;
         });
-        const data = await response.json();
-        // adds translated word into secondEntry box
-        document.getElementById("secondEntry").value = data.translation;
-    });
-</script>
+    </script>
+
+
+{{else}}
+    <h1 class="login-userMsg">
+        {{#if (eq lang "es")}}
+            Inicia sesión para ver las categorías
+        {{else}}
+            Please <a href="/login?lang={{lang}}">{{#if (eq lang "es")}}iniciar sesión {{else}}log in {{/if}}</a> to view categories and save words and phrases.
+        {{/if}}
+    </h1>
+    {{!-- maybe add image here so not so blank --}}
+    <img src="/images/logo.png"/>
+{{/if}}
