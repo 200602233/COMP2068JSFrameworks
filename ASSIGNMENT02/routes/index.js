@@ -128,7 +128,12 @@ router.get('/add', async function(req, res, next) {
  // update/edit
 router.get("/edit/:id", async function(req, res, next) {
   const entry = await Project.findById(req.params.id);
-  res.render("edit", { title: "Edit", entry, lang: req.query.lang || 'en'});
+  const lang = req.query.lang || 'en';
+  let title = 'Edit Entry';
+    if (lang === 'es') {
+      title = 'Editar Entrada';
+    }
+  res.render("edit", { title: title, entry, lang: req.query.lang || 'en'});
 });
 
 router.post("/edit/:id", async function(req, res, next) {
