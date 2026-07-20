@@ -18,9 +18,12 @@
             {{/if}}
         </label>
         <input
-            type="text"
-            id="searchBar"
-            placeholder="{{#if (eq lang "es")}}Busca algo aquí...{{else}}Search something here...{{/if}}">
+        type="text"
+        id="searchBar"
+        placeholder="{{#if (eq lang "es")}}Busca algo aquí...{{else}}Search something here...{{/if}}">
+        {{!-- hidden lang input --}}
+        <input type="hidden" name="lang" value="{{lang}}">
+
         <a href="/add?lang={{lang}}" class="addBtn">
             {{#if (eq lang "es")}}
                 + Agregar
@@ -54,14 +57,31 @@
         <tbody>
             {{#each words}}
             <tr>
-                <td>{{firstEntry}}</td>
-                <td>{{secondEntry}}</td>
-                <td>{{category}}</td>
-                <td>{{usage}}</td>
-                <td>{{note}}</td>
+                {{!-- english and spanish switch --}}
+                {{#if (eq this.language "en")}}
+                    {{#if (eq ../lang "en")}}
+                        <td>{{this.firstEntry}}</td>
+                        <td>{{this.secondEntry}}</td>
+                    {{else}}
+                        <td>{{this.secondEntry}}</td>
+                        <td>{{this.firstEntry}}</td>
+                    {{/if}}
+                {{else}}
+                    {{#if (eq ../lang "es")}}
+                        <td>{{this.firstEntry}}</td>
+                        <td>{{this.secondEntry}}</td>
+                    {{else}}
+                        <td>{{this.secondEntry}}</td>
+                        <td>{{this.firstEntry}}</td>
+                    {{/if}}
+                {{/if}}
+                    <td>{{this.category}}</td>
+                    <td>{{this.usage}}</td>
+                    <td>{{this.note}}</td>
                 <td>
-                    <a href="/?lang={{../lang}}">Edit</a>
-                    <a href="/">Delete</a>
+                    {{!-- edit and delete --}}
+                    <a href="/edit/{{_id}}?lang={{../lang}}" class="actBtn">{{#if (eq ../lang "es")}}Editar{{else}}Edit{{/if}}</a>
+                    <a href="/delete/{{_id}}?lang={{../lang}}" onclick="return confirmDelete();" class="actBtn">{{#if (eq ../lang "es")}}Eliminar{{else}}Delete{{/if}}</a>
                 </td>
             </tr> 
             {{/each}}

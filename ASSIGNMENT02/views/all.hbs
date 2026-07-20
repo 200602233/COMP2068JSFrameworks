@@ -21,6 +21,8 @@
         type="text"
         id="searchBar"
         placeholder="{{#if (eq lang "es")}}Busca algo aquí...{{else}}Search something here...{{/if}}">
+        {{!-- hidden lang input --}}
+        <input type="hidden" name="lang" value="{{lang}}">
 
         <a href="/add?lang={{lang}}" class="addBtn">
             {{#if (eq lang "es")}}
