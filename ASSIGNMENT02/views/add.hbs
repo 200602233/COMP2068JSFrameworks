@@ -168,9 +168,9 @@
 {{else}}
     <h1 class="login-userMsg">
         {{#if (eq lang "es")}}
-            Inicia sesión para ver las categorías
+            Por favor <a href="/login?lang={{lang}}">inicie sesión </a> para ver las categorías
         {{else}}
-            Please <a href="/login?lang={{lang}}">{{#if (eq lang "es")}}iniciar sesión {{else}}log in {{/if}}</a> to view categories and save words and phrases.
+            Please <a href="/login?lang={{lang}}">login</a> to view categories and save words and phrases.
         {{/if}}
     </h1>
     {{!-- maybe add image here so not so blank --}}
