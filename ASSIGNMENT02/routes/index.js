@@ -90,6 +90,78 @@ router.get(
 );
 
 
+// CRUD
+// adding form page (create)
+router.get('/add', async function(req, res, next) {
+  const lang = req.query.lang || 'en';
+  let title = 'Add';
+  if (lang === 'es') {
+      title = 'Agregar';
+  }
+  res.render('add', { title: title, lang: lang});
+});router.post('/add', async function(req, res, next) {
+  try{
+    const newEntry = new Project({
+      // create new entry
+      firstEntry: req.body.firstEntry,
+      secondEntry: req.body.secondEntry,
+      usage: req.body.usage,
+      category: req.body.category,
+      type: req.body.type,
+      note: req.body.note
+    });
+    await newEntry.save();
+  } catch (error){
+    console.log(error);
+    let message = "Failed to add entry";
+    return res.render("add", {
+      title: "Add",
+      error: error.message
+    });
+  }
+  res.redirect("/all");
+ });
+
+ // update/edit
+router.get("/edit/:id", async function(req, res, next) {
+  try{
+    const words = await Project.findById(req.params.id);
+    res.render("edit", { title: "Edit", words, lang: req.query.lang || 'en'});
+  } catch (error){
+    console.log(error);
+    res.redirect("/all");
+  }
+});
+
+router.post("/edit/:id", async function(req, res, next) {
+  try{
+    await Project.findByIdAndUpdate(req.params.id, {
+      // overwrite data
+      firstEntry: req.body.firstEntry,
+      secondEntry: req.body.secondEntry,
+      usage: req.body.usage,
+      category: req.body.category,
+      type: req.body.type,
+      note: req.body.note
+    });
+      } catch (error){
+        // tab filled out code
+        console.log(error);
+      }
+      res.redirect("/all");
+    });
+
+ // delete
+ router.get("/delete/:id", async function(req, res, next) {
+  try{
+    // fidn id and await for it to be deleted
+    await Project.findByIdAndDelete(req.params.id);
+  } catch (error){
+    //log error
+    console.log(error);
+  }
+  res.redirect("/all");
+ });
 
 
 // Pages
@@ -137,37 +209,6 @@ router.get('/phrases', async function(req, res, next) {
   res.render('phrases', { title: title, lang: lang, words});
 });
 
-// adding form page
-router.get('/add', async function(req, res, next) {
-  const lang = req.query.lang || 'en';
-  let title = 'Add';
-  if (lang === 'es') {
-      title = 'Agregar';
-  }
-  res.render('add', { title: title, lang: lang});
-});
-router.post('/add', async function(req, res, next) {
-  try{
-    const newEntry = new Project({
-
-        firstEntry: req.body.firstWord,
-        secondEntry: req.body.secondWord,
-        pronunciation: req.body.pronunciation,
-        usage: req.body.usage,
-        category: req.body.category,
-        type: req.body.type,
-        note: req.body.note
-    });
-  } catch (error){
-    console.log(error);
-    let message = "Failed to add entry";
-    return res.render("add", {
-      title: "Add",
-      error: error.message
-    });
-  }
-  res.redirect("/all");
- });
 
 // all page
 router.get('/all', async function(req, res, next) {
