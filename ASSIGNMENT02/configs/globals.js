@@ -5,7 +5,8 @@ require('dotenv').config();
 
 const configurations = {
     ConnectStrings: {
-        MongoDB: process.env.CONN_STR_MONGODB
+        MongoDB: process.env.CONN_STR_MONGODB,
+        MongoDBBackup: process.env.CONN_STR_MONGODB_BACKUP
     },
     Authentication: {
     GitHub: {

@@ -100,9 +100,23 @@ app.use(function(req, res, next) {
 
 // connect to MongoDB using Mongoose
 mongoose
-.connect(configs.ConnectStrings.MongoDB)
+.connect(configs.ConnectStrings.MongoDB, { serverSelectionTimeoutMS: 5000 })
 .then(() => console.log('Connected to MongoDB'))
-.catch((error) => console.error('Error connecting to MongoDB: ', error));
+.catch(async(error) => {
+  console.error('Error connecting to MongoDB: ', error);
+  // backup connect strng : https://mongoosejs.com/docs/connections.html#multiple_connections
+  try{
+    // clear failed connection and try to connect to non SRV link (my wifi router does not support SRV)
+    await mongoose.disconnect();
+
+    mongoose
+    .connect(configs.ConnectStrings.MongoDBBackup)
+    .then(() => console.log('Connected to MongoDB Backup'))
+    .catch((backupError) => console.error('Error connecting to MongoDB & the MongoDB Backup: ', backupError));
+  } catch (disconnectError){
+    console.error("Failed to clean up failed connection to MongoDB: ", disconnectError);
+  }
+});
 
 // error handler
 app.use(function(err, req, res, next) {
