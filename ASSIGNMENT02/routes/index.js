@@ -215,8 +215,6 @@ router.get('/phrases', ensureAuthenticated, async function(req, res, next) {
   }
   res.render('phrases', { title: title, lang: lang, words});
 });
-
-
 // all page
 router.get('/all', ensureAuthenticated, async function(req, res, next) {
   const lang = req.query.lang || 'en';
@@ -230,6 +228,27 @@ router.get('/all', ensureAuthenticated, async function(req, res, next) {
   res.render('all', { title: title, lang: lang, words});
 });
 
+
+// info pages (read only)
+// about
+router.get('/about', function(req, res, next){
+  const lang = req.query.lang || 'en';
+  let title = 'About'
+  if (lang === 'es'){
+    title = 'A'
+  }
+  res.render('about', {title: title, lang});
+});
+
+// feedback
+router.get('/feedback', function(req, res, next){
+  const lang = req.query.lang || 'en';
+  let title = 'Feedback'
+  if (lang === 'es'){
+    title = 'F'
+  }
+  res.render('feedback', {title: title, lang});
+});
 
 
 module.exports = router;
