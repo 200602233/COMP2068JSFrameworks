@@ -193,7 +193,7 @@ router.get('/categories', function(req, res, next) {
 // Words page
 router.get('/words', async function(req, res, next) {
   const lang = req.query.lang || 'en';
-  const words = await Project.find({type: "Words"});
+  const words = await Project.find({type: "Word"});
   let title = 'Words';
   if (lang === 'es') {
       title = 'Palabras';
@@ -204,7 +204,7 @@ router.get('/words', async function(req, res, next) {
 // phrases apge
 router.get('/phrases', async function(req, res, next) {
   const lang = req.query.lang || 'en';
-  const words = await Project.find({type: "Phrases"});
+  const words = await Project.find({type: "Phrase"});
   let title = 'Phrases';
   if (lang === 'es') {
       title = 'Frases';
