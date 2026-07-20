@@ -154,9 +154,14 @@ h6{
 table{
   margin-top: 30px;
 }
-#actBtn{
-  textdecoration: none;
+.actBtn{
+  text-decoration: none;
   color: black;
+  margin-right: 10px;
+}
+.actBtn:hover{
+  color: rgb(142, 98, 92);
+  text-decoration: underline;
 }
 
 
