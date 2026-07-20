@@ -247,7 +247,7 @@ router.get('/feedback', function(req, res, next){
   if (lang === 'es'){
     title = 'F'
   }
-  res.render('feedback',- {title: title, lang});
+  res.render('feedback', {title: title, lang});
 });
 
 
