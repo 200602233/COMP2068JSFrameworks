@@ -143,21 +143,21 @@ h6{
   background-color: rgba(128, 128, 128, 0.134);
 }
 
-/* All  */
-table{
-  margin-top: 30px;
-}
 
-/* Words  */
-
-
-
-/* Phrases  */
-
-
+/* CRUD */
 
 /* Add  */
 
+
+
+/* All / Words / Phrases table layout */
+table{
+  margin-top: 30px;
+}
+#actBtn{
+  textdecoration: none;
+  color: black;
+}
 
 
 
