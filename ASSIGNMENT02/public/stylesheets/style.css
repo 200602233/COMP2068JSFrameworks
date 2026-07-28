@@ -199,7 +199,21 @@ h6{
 /* All / Words / Phrases table layout */
 table{
   margin-top: 30px;
+  border: 1px solid black;
 }
+thead tr th{
+  background-color: rgba(255, 175, 175, 0.745) !important;
+  border: 1px solid rgb(63, 63, 63);
+  text-align: center;
+}
+tbody tr td{
+  border-left: 1px solid rgb(63, 63, 63);
+}
+/* last stored translation in order has a bottom border */
+tbody tr:last-child{
+  border-bottom: 1px solid rgb(63, 63, 63);
+}
+
 .actBtn{
   text-decoration: none;
   color: rgb(132, 91, 86);
