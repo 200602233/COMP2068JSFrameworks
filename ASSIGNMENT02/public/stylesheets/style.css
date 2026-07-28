@@ -100,15 +100,14 @@ h6{
 .authLabel + input{
   width: 200px;
 }
-
-
-
+/* buttons on log and reg screen */
 .auth-form-row:last-child{
-  margin-top: 50px;
+  margin-top: 40px;
   display: flex;
   flex-direction: column;
 }
 .auth-form-row:last-child .btn{
+  margin-bottom: 10px;
   border: 2px solid #bf4812;
   background-color: #bf49127c;
 }
@@ -116,6 +115,39 @@ h6{
   border: 2px solid #81310c;
   background-color: #cc4b0f9d;
 }
+
+
+/* user login msg - if auto login pop-up doesnt work */
+.login-userMsg{
+  text-align: center;
+}
+.login-userMsg a{
+  text-decoration: none;
+  /* animated text: https://www.youtube.com/watch?v=2Oe1hzwVKbA -- forgot how to do*/
+  background: linear-gradient(
+    90deg,
+    rgb(197, 55, 3), 
+    rgb(136, 132, 136), 
+    green);
+  color: transparent;
+  background-clip: text;
+  -webkit-background-clip: text;
+  background-size: 500% 500%;
+  animation: gradient-animation 6s ease infinite;
+}
+@keyframes gradient-animation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+
 
 
 
@@ -170,13 +202,38 @@ table{
 }
 .actBtn{
   text-decoration: none;
-  color: black;
+  color: rgb(132, 91, 86);
   margin-right: 10px;
 }
 .actBtn:hover{
-  color: rgb(142, 98, 92);
+  color: rgb(99, 62, 58);
   text-decoration: underline;
 }
+
+
+/* About */
+
+
+/* Contact */
+.contactForm{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  background-color: rgb(249, 249, 244);
+  border-radius: 10px;
+  padding: 30px 90px;
+}
+#firstName, #email{
+  margin-right: 20px;
+}
+.dblColumnSpaced{
+  grid-column: span 2;
+}
+.contactForm textarea{
+  height: 300px;
+}
+
+
+
 
 
 
@@ -186,13 +243,17 @@ table{
     flex-direction: column;
     justify-content: center;
     text-align: center;
-    padding-top: 110px; 
+    padding-top: 120px; 
   }
   /* hamburger menu */
   .top_nav{
     display: flex;
     flex-direction: column;
     padding: 15px;
+  }
+  /* user not signed in */
+  .login-userMsg{
+    margin-top: 30px;
   }
   /* logos */
   .nav-logo-top-nav{
