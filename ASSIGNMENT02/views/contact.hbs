@@ -1,0 +1,81 @@
+
+<h1>{{title}}</h1>
+
+<form method="post" class="contactForm">
+
+    <label>
+        {{#if (eq lang "es")}}
+            
+        {{else}}
+            * First Name
+        {{/if}}
+    </label>
+    <label>
+        {{#if (eq lang "es")}}
+            
+        {{else}}
+            Last Name
+        {{/if}}
+    </label>
+    <input
+    type="text"
+    name="firstName"
+    id="firstName"
+    placeholder="ex. John"
+    required>
+    <input
+    type="text"
+    name="lastName"
+    id="lastName"
+    placeholder="ex. Doe">
+    <label>
+        {{#if (eq lang "es")}}
+            
+        {{else}}
+            * Email
+        {{/if}}
+    </label>
+    <label>
+        {{#if (eq lang "es")}}
+            
+        {{else}}
+            Phone Number
+        {{/if}}
+    </label>
+    <input
+    type="text"
+    name="email"
+    id="email"
+    placeholder="ex. john.doe@gmail.com"
+    required>
+    <input
+    type="text"
+    name="phoneNum"
+    id="phoneNum"
+    placeholder="ex. 012-345-6789">
+   <br class="dblColumnSpaced">
+   <label class="dblColumnSpaced">
+        {{#if (eq lang "es")}}
+            
+        {{else}}
+            * Subject:
+        {{/if}}
+    </label>
+    <input 
+    class="dblColumnSpaced"
+    type="subject"
+    name="subject"
+    id="subject"
+    required>
+    <br class="dblColumnSpaced">
+
+    <textarea 
+    class="dblColumnSpaced" 
+    placeholder=" * Message starts here..."
+    required></textarea>
+
+    <br class="dblColumnSpaced"><br class="dblColumnSpaced">
+    <button class="dblColumnSpaced" >Send</button>
+    <br class="dblColumnSpaced">
+
+</form>
