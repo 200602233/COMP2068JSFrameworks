@@ -197,35 +197,87 @@ router.get('/categories', ensureAuthenticated, function(req, res, next) {
 // Words page
 router.get('/words', ensureAuthenticated, async function(req, res, next) {
   const lang = req.query.lang || 'en';
-  const words = await Project.find({type: "Word", user: req.user._id});
   let title = 'Words';
   if (lang === 'es') {
       title = 'Palabras';
   }
-  res.render('words', { title: title, lang: lang, words});
+  const search = req.query.search || '';
+  console.log(search);
+  let s = {
+    type: "Word"
+  };
+  // regex: https://www.mongodb.com/docs/manual/reference/operator/query/regex/ 
+  if(search){
+    s = {
+      $or: [
+        {firstEntry : {$regex: search, $options: "i"}},
+        {secondEntry : {$regex: search, $options: "i"}},
+        {category : {$regex: search, $options: "i"}},
+        {type : {$regex: search, $options: "i"}},
+        {usage : {$regex: search, $options: "i"}},
+        {note : {$regex: search, $options: "i"}}
+      ]
+    }
+  }
+  console.log(s);
+  const words = await Project.find(s);
+  console.log(words);
+  res.render('words', { title: title, lang: lang, words, search});
 });
 
 // phrases apge
 router.get('/phrases', ensureAuthenticated, async function(req, res, next) {
   const lang = req.query.lang || 'en';
-  const words = await Project.find({type: "Phrase", user: req.user._id});
   let title = 'Phrases';
   if (lang === 'es') {
       title = 'Frases';
   }
-  res.render('phrases', { title: title, lang: lang, words});
+  const search = req.query.search || '';
+  let s = {
+    //phrase only
+    type: "Phrase"
+  };
+  // regex: https://www.mongodb.com/docs/manual/reference/operator/query/regex/ 
+  if(search){
+    s = {
+      $or: [
+        {firstEntry : {$regex: search, $options: "i"}},
+        {secondEntry : {$regex: search, $options: "i"}},
+        {category : {$regex: search, $options: "i"}},
+        {type : {$regex: search, $options: "i"}},
+        {usage : {$regex: search, $options: "i"}},
+        {note : {$regex: search, $options: "i"}}
+      ]
+    }
+  }
+  const words = await Project.find(s);
+  res.render('phrases', { title: title, lang: lang, words, search});
 });
 // all page
 router.get('/all', ensureAuthenticated, async function(req, res, next) {
   const lang = req.query.lang || 'en';
-  const words = await Project.find({
-    user: req.user._id
-  });
   let title = 'All';
   if (lang === 'es') {
       title = 'Todo';
   }
-  res.render('all', { title: title, lang: lang, words});
+
+  const search = req.query.search || '';
+  let s = {};
+  // regex: https://www.mongodb.com/docs/manual/reference/operator/query/regex/ 
+  if(search){
+    s = {
+      $or: [
+        {firstEntry : {$regex: search, $options: "i"}},
+        {secondEntry : {$regex: search, $options: "i"}},
+        {category : {$regex: search, $options: "i"}},
+        {type : {$regex: search, $options: "i"}},
+        {usage : {$regex: search, $options: "i"}},
+        {note : {$regex: search, $options: "i"}}
+      ]
+    }
+  }
+  const words = await Project.find(s);
+  res.render('all', { title: title, lang: lang, words, search});
 });
 
 
@@ -240,14 +292,14 @@ router.get('/about', function(req, res, next){
   res.render('about', {title: title, lang});
 });
 
-// feedback
-router.get('/feedback', function(req, res, next){
+// contact
+router.get('/contact', function(req, res, next){
   const lang = req.query.lang || 'en';
-  let title = 'Feedback'
+  let title = 'Contact'
   if (lang === 'es'){
-    title = 'F'
+    title = 'C'
   }
-  res.render('feedback', {title: title, lang});
+  res.render('contact', {title: title, lang});
 });
 
 

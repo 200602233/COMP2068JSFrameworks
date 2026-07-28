@@ -8,8 +8,8 @@
         {{/if}}
     </h1>
 
-    {{!-- div for search and add new button --}}
-    <div class="search-div">
+    {{!-- form for search and add new button --}}
+    <form action="/all" method="GET" class="search-div">
         <label>
             {{#if (eq lang "es")}}
                 Buscar:
@@ -20,6 +20,8 @@
         <input
         type="text"
         id="searchBar"
+        name="search"
+        value="{{search}}"
         placeholder="{{#if (eq lang "es")}}Busca algo aquí...{{else}}Search something here...{{/if}}">
         {{!-- hidden lang input --}}
         <input type="hidden" name="lang" value="{{lang}}">
@@ -31,7 +33,7 @@
                 + Add
             {{/if}}
         </a>
-    </div>
+    </form>
 
     {{!-- Table for the list --}}
     <table class="table table-bordered">
