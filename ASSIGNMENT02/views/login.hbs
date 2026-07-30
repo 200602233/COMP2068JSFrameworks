@@ -29,7 +29,7 @@
     {{!-- user --}}
     <fieldset class="auth-form-row">
         <label for="username" class="authLabel">{{#if (eq lang "es")}}* Nombre de usuario: {{else}}* Username: {{/if}}</label>
-        <input type="text" name="username" placeholder="user or email" required/>
+        <input type="text" name="username" placeholder="{{#if (eq lang "es")}}usuario o correo electrónico{{else}}username or email address{{/if}}" required/>
     </fieldset>
     {{!-- pass --}}
     <fieldset class="auth-form-row">
@@ -39,7 +39,7 @@
     {{!-- btn and if no account, direct to register --}}
     <fieldset class="auth-form-row">
         <button class="btn">{{#if (eq lang "es")}}Iniciar sesión{{else}}Login{{/if}}</button>
-        <a class="btn" href="/github">Login with Github</a>
+        <a class="btn" href="/github">{{#if (eq lang "es")}}Iniciar sesión con GitHub{{else}}Login with GitHub{{/if}}</a>
         <hr/> 
         {{#if (eq lang "es")}}¿No tienes cuenta? {{else}}Don't have an account? {{/if}}<a href="/register?lang={{lang}}" title="register">{{#if (eq lang "es")}}¡Regístrate hoy!{{else}}Register today!{{/if}}</a>
     </fieldset>
