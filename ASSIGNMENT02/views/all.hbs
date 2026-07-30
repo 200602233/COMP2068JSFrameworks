@@ -107,7 +107,7 @@
                 <td>
                     {{!-- edit and delete --}}
                     <a href="/edit/{{_id}}?lang={{../lang}}" class="actBtn">{{#if (eq ../lang "es")}}Editar{{else}}Edit{{/if}}</a>
-                    <a href="/delete/{{_id}}?lang={{../lang}}" onclick="return confirmDelete();" class="actBtn">{{#if (eq ../lang "es")}}Eliminar{{else}}Delete{{/if}}</a>
+                    <a href="/delete/{{_id}}?lang={{../lang}}" onclick="return confirmDelete()" class="actBtn">{{#if (eq ../lang "es")}}Eliminar{{else}}Delete{{/if}}</a>
                 </td>
             </tr> 
             {{/each}}

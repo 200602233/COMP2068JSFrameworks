@@ -8,28 +8,19 @@
     {{/if}}
 </h1>
 
-{{!-- error message for invalid credentiasl --}}
-{{!-- may change alert colours later --}}
-
-{{#if messages}}
-    <div class="alert alert-danger">
-        {{#if (eq lang "es")}}Credenciales inválidas!!
-        {{else}}Invalid Credentials!!!
-        {{/if}}
-    </div>
-{{else}}
-    <div class="alert alert-info">
-        {{#if (eq lang "es")}}Por favor, introduzca sus credenciales.
-        {{else}}Please enter your credentials.
-        {{/if}}
-    </div>
-{{/if}}
-
 <form method="post">
     {{!-- user --}}
     <fieldset class="auth-form-row">
         <label for="username" class="authLabel">{{#if (eq lang "es")}}* Nombre de usuario: {{else}}* Username: {{/if}}</label>
-        <input type="text" name="username" placeholder="{{#if (eq lang "es")}}usuario o correo electrónico{{else}}username or email address{{/if}}" required/>
+        <input type="text" name="username" placeholder="{{#if (eq lang "es")}}usuario o correo electrónico{{else}}username or email address{{/if}}" 
+        {{!-- code to allow me to adjust language of message prompt that pops up --}}
+        {{!-- https://www.w3schools.com/Jsref/event_oninvalid.asp --}}
+        oninvalid="alert(
+            {{#if (eq lang "es")}}Por favor, introduzca una dirección de correo electrónico válida.
+            {{else}}Please enter valid email address.
+            {{/if}})"
+        oninput="this.setCustomValidity('')" 
+        required/>
     </fieldset>
     {{!-- pass --}}
     <fieldset class="auth-form-row">

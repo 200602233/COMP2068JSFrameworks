@@ -5,14 +5,14 @@
 
     <label>
         {{#if (eq lang "es")}}
-            
+            * Nombre de pila
         {{else}}
             * First Name
         {{/if}}
     </label>
     <label>
         {{#if (eq lang "es")}}
-            
+            Apellido
         {{else}}
             Last Name
         {{/if}}
@@ -30,14 +30,14 @@
     placeholder="ex. Doe">
     <label>
         {{#if (eq lang "es")}}
-            
+            * Correo electrónico
         {{else}}
             * Email
         {{/if}}
     </label>
     <label>
         {{#if (eq lang "es")}}
-            
+            Número de teléfono
         {{else}}
             Phone Number
         {{/if}}
@@ -56,7 +56,7 @@
    <br class="dblColumnSpaced">
    <label class="dblColumnSpaced">
         {{#if (eq lang "es")}}
-            
+            * Sujeto:
         {{else}}
             * Subject:
         {{/if}}
@@ -71,7 +71,7 @@
 
     <textarea 
     class="dblColumnSpaced" 
-    placeholder=" * Message starts here..."
+    placeholder="{{#if (eq lang "es")}}* El mensaje comienza aquí...{{else}}* Message starts here...{{/if}}"
     required></textarea>
 
     <br class="dblColumnSpaced"><br class="dblColumnSpaced">

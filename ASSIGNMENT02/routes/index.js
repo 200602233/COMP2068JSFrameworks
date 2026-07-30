@@ -300,7 +300,7 @@ router.get('/about', function(req, res, next){
   const lang = req.query.lang || 'en';
   let title = 'About'
   if (lang === 'es'){
-    title = 'A'
+    title = 'Acerca de'
   }
   res.render('about', {title: title, lang});
 });
@@ -310,7 +310,7 @@ router.get('/contact', function(req, res, next){
   const lang = req.query.lang || 'en';
   let title = 'Contact'
   if (lang === 'es'){
-    title = 'C'
+    title = 'Contacto'
   }
   res.render('contact', {title: title, lang});
 });
