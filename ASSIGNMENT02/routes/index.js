@@ -204,9 +204,14 @@ router.get('/words', ensureAuthenticated, async function(req, res, next) {
   const search = req.query.search || '';
   console.log(search);
   let s = {
+    //shows word saved inputs only
     type: "Word"
   };
   // regex: https://www.mongodb.com/docs/manual/reference/operator/query/regex/ 
+  // example I used
+  // { <field>: { $regex: /pattern/, $options: '<options>' } }
+// { "<field>": { "$regex": "pattern", "$options": "<options>" } }
+// { <field>: { $regex: /pattern/<options> } }
   if(search){
     s = {
       $or: [
@@ -234,10 +239,14 @@ router.get('/phrases', ensureAuthenticated, async function(req, res, next) {
   }
   const search = req.query.search || '';
   let s = {
-    //phrase only
+    //shwos phrase saved inputs only
     type: "Phrase"
   };
   // regex: https://www.mongodb.com/docs/manual/reference/operator/query/regex/ 
+  // example I used
+  // { <field>: { $regex: /pattern/, $options: '<options>' } }
+// { "<field>": { "$regex": "pattern", "$options": "<options>" } }
+// { <field>: { $regex: /pattern/<options> } }
   if(search){
     s = {
       $or: [
@@ -264,6 +273,10 @@ router.get('/all', ensureAuthenticated, async function(req, res, next) {
   const search = req.query.search || '';
   let s = {};
   // regex: https://www.mongodb.com/docs/manual/reference/operator/query/regex/ 
+  // example I used
+  // { <field>: { $regex: /pattern/, $options: '<options>' } }
+// { "<field>": { "$regex": "pattern", "$options": "<options>" } }
+// { <field>: { $regex: /pattern/<options> } }
   if(search){
     s = {
       $or: [
