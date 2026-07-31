@@ -26,13 +26,13 @@ h1{
   height: 43px;
 }
 .bottom-nav > div:first-child{
-  margin-left: 100px;
-  margin-top: 20px;
+  margin: 0px;
+  padding-left: 100px;
 }
 .nav-logo-bottom-nav{
   margin-left: 15px;
-  width: 86px;
-  height: 86px;
+  width: 106px;
+  height: 106px;
 }
 
 /* Ttop nav */
@@ -76,7 +76,6 @@ h1{
 }
 .bottom-nav > div:first-of-type{
     width: 100px;
-    margin: 30px;
   }
 h6{
   padding-left: 25px;
