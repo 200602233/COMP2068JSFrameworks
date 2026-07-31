@@ -264,7 +264,66 @@ tbody tr:last-child{
     flex-direction: column;
     justify-content: center;
     text-align: center;
-    padding-top: 120px; 
+    padding-top: 100px; 
+  }
+  /* hamburger menu */
+  .top_nav{
+    display: flex;
+    flex-direction: column;
+    padding: 15px;
+  }
+  /* user not signed in */
+  .login-userMsg{
+    margin-top: 30px;
+  }
+  /* logos */
+  .nav-logo-top-nav{
+    margin: 0;
+  }
+  /* top nav */
+  #mainNavbar{
+    margin-top: 5px;
+    padding-left: 10px;
+    padding-bottom: 10px;
+    background-color: rgb(245, 186, 242);
+    border-radius: 15px;
+  }
+  /* category */
+  .category-h1{
+    margin-top: 280px;
+  }
+  /* all */
+  .all-h1{
+    margin-top: 20px;
+  }
+  /* bottom nav */
+  .bottom-nav > div:first-of-type{
+    width: 80px;
+    margin: 10px;
+  }
+  /* category layout */
+  .nav-cat{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+  }
+  .nav-cat a{
+    padding: 40px;
+    margin: 10px;
+  }
+  /* add layout */
+  .h1-add{
+    padding-top: 160px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 300) {
+  body {
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    padding-top: 200px; 
   }
   /* hamburger menu */
   .top_nav{
