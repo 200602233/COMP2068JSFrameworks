@@ -25,45 +25,24 @@
           </button>
           <div class="collapse navbar-collapse" id="mainNavbar">
             <ul class="navbar-nav me-auto">
-              {{#if (eq lang "es")}}
-                <li>
-                  <a class="nav-link" href="/?lang={{lang}}">Inicio</a>
-                </li>
-                <li>
-                  <a class="nav-link" href="/categories?lang={{lang}}">Categorías</a>
-                </li>
-                {{#if user}}
-                  <li>
-                    <a class="nav-link" href="/logout?lang={{lang}}">Cerrar sesión</a>
-                  </li>
-                {{else}}
-                  <li>
-                    <a class="nav-link" href="/login?lang={{lang}}">Iniciar sesión</a>
-                  </li>
-                  <li>
-                    <a class="nav-link" href="/register?lang={{lang}}">Registrarse</a>
-                  </li>
-                {{/if}}
-              {{else}}
-                <li class="nav-item">
-                  <a class="nav-link" href="/?lang={{lang}}">Home</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="/categories?lang={{lang}}">Categories</a>
-                </li>
-                {{#if user}}
-                  <li>
-                    <a class="nav-link" href="/logout?lang={{lang}}">Log out</a>
-                  </li>
-                {{else}}
-                  <li>
-                    <a class="nav-link" href="/login?lang={{lang}}">Login</a>
-                  </li>
-                  <li>
-                    <a class="nav-link" href="/register?lang={{lang}}">Register</a>
-                  </li>
-                {{/if}}
-              {{/if}}
+              <li class="nav-item">
+            <a class="nav-link" href="/?lang={{lang}}">{{#if (eq lang "es")}}Inicio{{else}}Home{{/if}}</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/categories?lang={{lang}}">{{#if (eq lang "es")}}Categorías{{else}}Categories{{/if}}</a>
+          </li>
+          {{#if user}}
+            <li>
+              <a class="nav-link" href="/logout?lang={{lang}}">{{#if (eq lang "es")}}Cerrar sesión{{else}}Log out{{/if}}</a>
+            </li>
+          {{else}}
+          <li>
+            <a class="nav-link" href="/login?lang={{lang}}">{{#if (eq lang "es")}}Iniciar sesión{{else}}Login{{/if}}</a>
+          </li>
+          <li>
+            <a class="nav-link" href="/register?lang={{lang}}">{{#if (eq lang "es")}}Registrarse{{else}}Register{{/if}}</a>
+          </li>
+          {{/if}}
             </ul>
             <!--english or spanish-->
             <ul class="navbar-nav ms-auto d-flex flex-row gap-2">
@@ -93,38 +72,23 @@
       <div class="main-nav">
         <h6>{{#if (eq lang "es")}}Páginas Principales{{else}}Main Pages{{/if}}</h6>
         <ul>
-          {{#if (eq lang "es")}}
+          <li class="nav-item">
+            <a class="nav-link" href="/?lang={{lang}}">{{#if (eq lang "es")}}Inicio{{else}}Home{{/if}}</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/categories?lang={{lang}}">{{#if (eq lang "es")}}Categorías{{else}}Categories{{/if}}</a>
+          </li>
+          {{#if user}}
             <li>
-              <a class="nav-link" href="/?lang={{lang}}">Inicio</a>
-            </li>
-            <li>
-              <a class="nav-link" href="/categories?lang={{lang}}">Categorías</a>
-            </li>
-            <li>
-              <a class="nav-link" href="/login?lang={{lang}}">Iniciar sesión</a>
-            </li>
-            <li>
-              <a class="nav-link" href="/register?lang={{lang}}">Registrarse</a>
+              <a class="nav-link" href="/logout?lang={{lang}}">{{#if (eq lang "es")}}Cerrar sesión{{else}}Log out{{/if}}</a>
             </li>
           {{else}}
-            <li class="nav-item">
-              <a class="nav-link" href="/?lang={{lang}}">Home</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/categories?lang={{lang}}">Categories</a>
-            </li>
-            {{#if user}}
-              <li>
-                <a class="nav-link" href="/logout?lang={{lang}}">Log out</a>
-              </li>
-            {{else}}
-            <li>
-              <a class="nav-link" href="/login?lang={{lang}}">Login</a>
-            </li>
-            <li>
-              <a class="nav-link" href="/register?lang={{lang}}">Register</a>
-            </li>
-            {{/if}}
+          <li>
+            <a class="nav-link" href="/login?lang={{lang}}">{{#if (eq lang "es")}}Iniciar sesión{{else}}Login{{/if}}</a>
+          </li>
+          <li>
+            <a class="nav-link" href="/register?lang={{lang}}">{{#if (eq lang "es")}}Registrarse{{else}}Register{{/if}}</a>
+          </li>
           {{/if}}
         </ul>
       </div>
