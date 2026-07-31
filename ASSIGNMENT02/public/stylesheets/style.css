@@ -11,8 +11,12 @@ body {
   align-items: center;
   flex-direction: column;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-  background-color: rgb(243, 243, 218) !important;
+  background-color: rgb(249, 229, 247) !important;
   padding-top: 70px;
+}
+
+h1{
+  margin-bottom: 20px;
 }
 
 /* logo */
@@ -37,7 +41,7 @@ body {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  background-color: rgb(167, 237, 214);
+  background-color: rgb(237, 167, 232);
 }
 
 /* all language links */
@@ -50,7 +54,8 @@ body {
 .collapse > ul:nth-child(2) > a:hover,
 .lang-nav ul a:hover{
   text-decoration: none !important;
-  color: rgb(185, 78, 78);
+  color: rgb(102, 36, 90);
+  font-weight: 500;
 }
 .lang-flag{
   width: 20px;
@@ -63,7 +68,7 @@ body {
   flex: 3;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  background-color: rgb(121, 240, 201);
+  background-color: rgb(220, 142, 215);
   width: 100%;
   height: fit-content;
   padding-top: 15px;
@@ -108,12 +113,12 @@ h6{
 }
 .auth-form-row:last-child .btn{
   margin-bottom: 10px;
-  border: 2px solid #bf4812;
-  background-color: #bf49127c;
+  border: 2px solid #b912bf;
+  background-color: #b912bf7c;
 }
 .auth-form-row:last-child .btn:hover{
-  border: 2px solid #81310c;
-  background-color: #cc4b0f9d;
+  border: 2px solid #810c79;
+  background-color: #cc0fb99d;
 }
 
 
@@ -182,16 +187,16 @@ h6{
 /* add btn on word,phrase, and all page */
 .addBtn{
   text-decoration: none;
-  border: 2px solid black;
-  border-radius: 20%;
+  border: 2px solid rgb(180, 127, 215);
+  border-radius: 25%;
   padding: 5px;
   color: black;
-  background-color: rgba(128, 128, 128, 0.244);
+  background-color: rgba(223, 175, 255, 0.504);
 }
 .addBtn:hover{
   color: rgb(6, 6, 6);
-  border-color: rgb(81, 81, 81);
-  background-color: rgba(128, 128, 128, 0.434);
+  border-color: rgb(160, 113, 192);
+  background-color: rgba(223, 175, 255, 0.745);
 }
 
 
@@ -202,7 +207,7 @@ table{
   border: 1px solid black;
 }
 thead tr th{
-  background-color: rgba(255, 175, 175, 0.745) !important;
+  background-color: rgba(223, 175, 255, 0.745) !important;
   border: 1px solid rgb(63, 63, 63);
   text-align: center;
 }
@@ -216,11 +221,11 @@ tbody tr:last-child{
 
 .actBtn{
   text-decoration: none;
-  color: rgb(132, 91, 86);
+  color: rgb(132, 86, 125);
   margin-right: 10px;
 }
 .actBtn:hover{
-  color: rgb(99, 62, 58);
+  color: rgb(99, 58, 90);
   text-decoration: underline;
 }
 
@@ -280,7 +285,7 @@ tbody tr:last-child{
     margin-top: 5px;
     padding-left: 10px;
     padding-bottom: 10px;
-    background-color: rgb(186, 245, 225);
+    background-color: rgb(245, 186, 242);
     border-radius: 15px;
   }
   /* bottom nav */
