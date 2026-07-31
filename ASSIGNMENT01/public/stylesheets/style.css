@@ -259,12 +259,15 @@ main{
   text-align: center;
   background-color: #653065;
   color: white;
-  width: 1520px;
+  min-width: 1900px;
   align-items:center;
   justify-content:center;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  box-sizing: border-box;
 }
 .footer-initials{
-  margin-left: 10px;
+  margin-left: 30px;
   width:80px;
   height:80px;
   border-radius:50%;
@@ -282,8 +285,6 @@ main{
 .footer div{
   display: flex;
   flex-direction: column;
-  margin-left: 300px;
-
 }
 .footer div a{
   color: white;
