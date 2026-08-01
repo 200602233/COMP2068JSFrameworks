@@ -1,7 +1,8 @@
 
-html, body{
+html,
+body{
   width: 100%;
-  height: 100%;
+  min-height: 100vh;
   margin: 0;
 } 
 
@@ -13,8 +14,8 @@ body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
   background-color: rgb(249, 229, 247) !important;
   padding-top: 70px;
+  box-sizing: border-box;
 }
-
 h1{
   margin-bottom: 20px;
 }
@@ -39,7 +40,6 @@ h1{
 
 /* Ttop nav */
 .top_nav{
-  flex: 1;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -67,14 +67,12 @@ h1{
 
 /* Bottom nav */
 .bottom-nav{
-  flex: 3;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   background-color: rgb(220, 142, 215);
   width: 100%;
-  height: fit-content;
-  padding-top: 15px;
-  margin-top: 30px;
+  padding-top: 15px 0;
+  margin-top: auto;
 }
 .bottom-nav > div:first-of-type{
     width: 100px;
@@ -243,6 +241,7 @@ tbody tr:last-child{
   background-color: rgb(249, 249, 244);
   border-radius: 10px;
   padding: 30px 90px;
+  margin-bottom: 40px;
 }
 #firstName, #email{
   margin-right: 20px;
@@ -260,7 +259,7 @@ tbody tr:last-child{
 
 
 /* Code for when user makes screen smaller */
-@media (max-width: 767.5px) {
+@media screen and (max-width: 767.5px) {
   body {
     flex-direction: column;
     justify-content: center;
@@ -279,6 +278,15 @@ tbody tr:last-child{
   }
   /* logos */
   .nav-logo-top-nav{
+    margin: 0;
+  }
+  .bottom-nav{
+    padding-top: 10px;
+  }
+  .bottom-nav > div:first-of-type{
+    padding-left: 0px;
+  }
+  .nav-logo-bottom-nav{
     margin: 0;
   }
   /* top nav */
@@ -319,7 +327,7 @@ tbody tr:last-child{
 }
 
 /* Mobile */
-@media (max-width: 300) {
+@media screen and (max-width: 300px) {
   body {
     flex-direction: column;
     justify-content: center;
