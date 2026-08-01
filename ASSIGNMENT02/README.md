@@ -36,3 +36,14 @@ Also all commented throughout my code, but here is a list as well of websites / 
 * https://github.com/eduardojaime/COMP2068JavaScriptFrameworks/tree/master/lesson08 (referred to Jesus's lesson08 code many times)
 * https://github.com/eduardojaime/COMP2068JavaScriptFrameworks/tree/master/lesson09 (referred to Jesus's lesson09 code many times)
 * https://www.mongodb.com/docs/manual/reference/operator/query/regex/ (referred to the regex for search frag)
+
+Icons / Logos:
+* https://i.pinimg.com/1200x/18/7a/e7/187ae70f03b99ea318482c22a5bb61d7.jpg
+* https://i.pinimg.com/736x/fd/4c/5d/fd4c5d34a687ca213d532944e5489c3c.jpg 
+* https://i.pinimg.com/1200x/6f/6e/1b/6f6e1b19d548914b5b1d361ab1873e5e.jpg
+* https://i.pinimg.com/736x/ff/a9/76/ffa976c1c040f4664228b9d6e06ffba3.jpg
+* https://i.pinimg.com/1200x/fe/a5/f3/fea5f3c13e3bf81c13f135f7698ae09b.jpg
+* 
+
+* https://i.pinimg.com/736x/28/91/27/289127c291ce13c35c1669805897d31a.jpg
+* https://pixabay.com/illustrations/axolotl-salamander-amphibious-7719597/ -- axolotl 
