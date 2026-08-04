@@ -11,9 +11,9 @@ const ensureAuthenticated = require("../extensions/authentication");
 // Login
 router.get('/login', function(req, res, next) {
   const lang = req.query.lang || 'en';
-  let title = 'Login';
+  let title = 'Rosita - Login';
   if (lang === 'es') {
-      title = 'Iniciar sesión';
+      title = 'Rosita - Iniciar sesión';
   }
   // Handle validation messages from failed login attempts
   let messages = req.session.messages || [];
@@ -30,9 +30,9 @@ router.post('/login', passport.authenticate("local",  {
 // Register
 router.get('/register', function(req, res, next) {
   const lang = req.query.lang || 'en';
-  let title = 'Register';
+  let title = 'Rosita - Register';
   if (lang === 'es') {
-      title = 'Registrarse';
+      title = 'Rosita - Registrarse';
   }
   res.render('register', { title: title, lang: lang});
 });
@@ -61,7 +61,7 @@ router.post('/register', async (req, res, next) =>{
     }
     // send error not crsah
     return res.render("register", {
-      title: "Register",
+      title: "Rosita - Register",
       error: error.message
     });
   }
@@ -95,9 +95,9 @@ router.get(
 // adding form page (create)
 router.get('/add', ensureAuthenticated, async function(req, res, next) {
   const lang = req.query.lang || 'en';
-  let title = 'Add';
+  let title = 'Rosita - Add';
   if (lang === 'es') {
-      title = 'Agregar';
+      title = 'Rosita - Agregar';
   }
   res.render('add', { title: title, lang: lang});
 });router.post('/add', ensureAuthenticated, async function(req, res, next) {
@@ -118,9 +118,9 @@ router.get('/add', ensureAuthenticated, async function(req, res, next) {
   } catch (error){
     console.log(error);
     let message = "Failed to add entry";
-    let title = 'Add';
+    let title = 'Rosita - Add';
     if (lang === 'es') {
-      title = 'Agregar';
+      title = 'Rosita - Agregar';
     }
     return res.render("add", {title, error: error.message, lang: lang});
   }
@@ -131,9 +131,9 @@ router.get('/add', ensureAuthenticated, async function(req, res, next) {
 router.get("/edit/:id", ensureAuthenticated, async function(req, res, next) {
   const entry = await Project.findById(req.params.id);
   const lang = req.query.lang || 'en';
-  let title = 'Edit Entry';
+  let title = 'Rosita - Edit Entry';
     if (lang === 'es') {
-      title = 'Editar Entrada';
+      title = 'Rosita - Editar Entrada';
     }
   res.render("edit", { title: title, entry, lang: req.query.lang || 'en'});
 });
@@ -177,9 +177,9 @@ router.post("/edit/:id", ensureAuthenticated, async function(req, res, next) {
 // add the const lang so user can choose websites main language
 router.get('/', function (req, res) {
     const lang = req.query.lang || 'en';
-    let title = 'Home';
+    let title = 'Rosita - Home';
     if (lang === 'es') {
-        title = 'Inicio';
+        title = 'Rosita - Inicio';
     }
     res.render('index', {title: title, lang: lang});
 });
@@ -187,9 +187,9 @@ router.get('/', function (req, res) {
 // Category page
 router.get('/categories', ensureAuthenticated, function(req, res, next) {
   const lang = req.query.lang || 'en';
-  let title = 'Categories';
+  let title = 'Rosita - Categories';
   if (lang === 'es') {
-      title = 'Categorías';
+      title = 'Rosita - Categorías';
   }
   res.render('categories', { title: title, lang: lang});
 });
@@ -197,9 +197,9 @@ router.get('/categories', ensureAuthenticated, function(req, res, next) {
 // Words page
 router.get('/words', ensureAuthenticated, async function(req, res, next) {
   const lang = req.query.lang || 'en';
-  let title = 'Words';
+  let title = 'Rosita - Words';
   if (lang === 'es') {
-      title = 'Palabras';
+      title = 'Rosita - Palabras';
   }
   const search = req.query.search || '';
   console.log(search);
@@ -233,9 +233,9 @@ router.get('/words', ensureAuthenticated, async function(req, res, next) {
 // phrases apge
 router.get('/phrases', ensureAuthenticated, async function(req, res, next) {
   const lang = req.query.lang || 'en';
-  let title = 'Phrases';
+  let title = 'Rosita - Phrases';
   if (lang === 'es') {
-      title = 'Frases';
+      title = 'Rosita - Frases';
   }
   const search = req.query.search || '';
   let s = {
@@ -265,9 +265,9 @@ router.get('/phrases', ensureAuthenticated, async function(req, res, next) {
 // all page
 router.get('/all', ensureAuthenticated, async function(req, res, next) {
   const lang = req.query.lang || 'en';
-  let title = 'All';
+  let title = 'Rosita - All';
   if (lang === 'es') {
-      title = 'Todo';
+      title = 'Rosita - Todo';
   }
 
   const search = req.query.search || '';
@@ -298,9 +298,9 @@ router.get('/all', ensureAuthenticated, async function(req, res, next) {
 // about
 router.get('/about', function(req, res, next){
   const lang = req.query.lang || 'en';
-  let title = 'About'
+  let title = 'Rosita - About'
   if (lang === 'es'){
-    title = 'Acerca de'
+    title = 'Rosita - Acerca de'
   }
   res.render('about', {title: title, lang});
 });
@@ -308,9 +308,9 @@ router.get('/about', function(req, res, next){
 // contact
 router.get('/contact', function(req, res, next){
   const lang = req.query.lang || 'en';
-  let title = 'Contact'
+  let title = 'Rosita - Contact'
   if (lang === 'es'){
-    title = 'Contacto'
+    title = 'Rosita - Contacto'
   }
   res.render('contact', {title: title, lang});
 });
