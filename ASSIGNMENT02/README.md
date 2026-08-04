@@ -27,8 +27,8 @@ API used: Microsoft, Translator
 Credit: Azure, Microsoft, Translator
 
 <!-- may not do.. -->
-## Feature #4 - Flashcard/Test:
-I added a feature to allow users to test themselves to help memorizes the translations better
+## DISREGARDED FEATURE: Flashcard/Test:
+Unfortunatley, I decided to drop the flashcard feature since I did not have the time to learn and implement it into my project. I wanted to focus on the design and look of my assignment and since I had 3 other features, this one got dropped.
 
 
 ## References:
