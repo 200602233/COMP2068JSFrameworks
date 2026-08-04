@@ -25,7 +25,7 @@
         placeholder="{{#if (eq lang "es")}}Busca algo aquí...{{else}}Search something here...{{/if}}">
         {{!-- hidden lang input --}}
         <input type="hidden" name="lang" value="{{lang}}">
-
+        <br class="mobile-br-addBtn"><br class="mobile-br-addBtn">
         <a href="/add?lang={{lang}}" class="addBtn">
             {{#if (eq lang "es")}}
                 + Agregar
@@ -36,7 +36,7 @@
     </form>
 
     {{!-- Table for the list --}}
-    <table class="table" id="">
+    <table class="table">
         <thead>
             <tr>
                 {{#if (eq lang "es")}}
