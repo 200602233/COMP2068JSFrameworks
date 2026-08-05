@@ -38,7 +38,7 @@
 </div>
 <br>
 
-<div>
+<div class="list-div">
     <h2>
         {{#if (eq lang "es")}}
             ¿Por qué usar Rosita?
@@ -46,21 +46,14 @@
             Why Use Rosita?
         {{/if}}
     </h2>
-    <p>  
-        {{#if (eq lang "es")}}
-            
-        {{else}}
-            
-        {{/if}}
-    </p>
-    <br>
-
-    <p>
-        {{#if (eq lang "es")}}
-            
-        {{else}}
-            
-        {{/if}}
+    <ul class="whyList">
+        {{!-- heart from https://emojicombos.com/heart --}}
+        <li>♡ {{#if (eq lang "es")}}¡Crea tu propia biblioteca de vocabulario personal!{{else}}Create your OWN personal vocabulary library!{{/if}}</li>
+        <li>♡ {{#if (eq lang "es")}}Edita tus entradas en cualquier momento.{{else}}Edit your entries at any time.{{/if}}</li>
+        <li>♡ {{#if (eq lang "es")}}Elimina las entradas que quizá ya no quieras.{{else}}Delete entries that you may not want anymore.{{/if}}</li>
+        <li>♡ {{#if (eq lang "es")}}Organiza las entradas por tipo.{{else}}Organize entries by the Type.{{/if}}</li>
+        <li>♡ {{#if (eq lang "es")}}¡Acceso fácil a tus propuestas!{{else}}Easy access to your entries!{{/if}}</li>
+    </ul>
     </p>
 </div>
 <br>
@@ -106,4 +99,9 @@
             </tr>
         </tbody>
     </table>
+    {{!-- add button --}}
+    <button class="homeBtns">
+        <a href="/add?lang={{lang}}">{{#if (eq lang "es")}}¡Añade la tuya!{{else}}Add Your Own!{{/if}}</a>
+    </button>
+
 </div>

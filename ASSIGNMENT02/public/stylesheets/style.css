@@ -122,12 +122,12 @@ h6{
 }
 .auth-form-row:last-child .btn{
   margin-bottom: 10px;
-  border: 2px solid #b912bf;
-  background-color: #b912bf7c;
+  border: 2px solid rgb(180, 127, 215);
+  background-color: rgba(223, 175, 255, 0.504);
 }
 .auth-form-row:last-child .btn:hover{
-  border: 2px solid #810c79;
-  background-color: #cc0fb99d;
+  border-color: rgb(160, 113, 192);
+  background-color: rgba(223, 175, 255, 0.745);
 }
 
 
@@ -170,37 +170,55 @@ h6{
 div{
   text-align: center;
 }
-.homeBtns{
-  padding: 5px 15px;
-  margin: 10px;
-  border: 2px solid #b912bf;
-  background-color: #b912bf7c;
-}
-.homeBtns:hover{
-  border: 2px solid #810c79;
-  background-color: #cc0fb99d;
-}
-.homeBtns a{
-  text-decoration: none;
-  color: black;
-}
-#example-table{
-  text-align: left;
-  border-right: 1px solid black;
-  margin-bottom: 50px;
-}
 #webTitle{
-  background-color: #810c79;
-  font-size: 25rem !important;
-  margin-bottom: 10px;
-  padding-bottom: 80px;
+  background-color: #ffb5e481;
+  font-size: 15rem !important;
+  margin-bottom: 15px;
+  padding-bottom: 60px;
   border-radius: 50px;
-  color: black;
+  color: #c579a9;
   min-width: 94%;
   text-align: center;
   height: fit-content;
 }
 
+.homeBtns{
+  padding: 5px 15px;
+  margin: 10px;
+  border: 2px solid rgb(180, 127, 215);
+  background-color: rgba(223, 175, 255, 0.504);
+}
+.homeBtns:hover{
+  border-color: rgb(160, 113, 192);
+  background-color: rgba(223, 175, 255, 0.745);
+}
+.homeBtns a{
+  text-decoration: none;
+  color: black;
+}
+.list-div{
+  background-color: rgb(248, 248, 246);
+  margin: 30px;
+  padding: 70px;
+  border-radius: 50%;
+}
+.whyList{
+  text-align: left;
+  list-style: none;
+  padding: 15px;
+  margin: 0;
+  border-radius: 30px;
+}
+.whyList:hover{
+  background-color: #ffb5e440;
+}
+#example-table{
+  text-align: left;
+  border-right: 1px solid black;
+}
+.example-div{
+  margin-bottom: 50px;
+}
 
 /* Categories */
 .nav-cat{
@@ -381,6 +399,17 @@ tbody tr:last-child{
   .h1-add{
     padding-top: 160px;
   }
+  /* table */
+  #table {
+    width: 100%;
+    overflow-x: auto;
+  }
+
+  table {
+    width: 100%;
+    min-width: min-content; /* adjust as needed */
+    border-collapse: collapse;
+  }
 }
 
 
@@ -425,10 +454,13 @@ tbody tr:last-child{
   .authLabel + input{
     width: 150px;
   }
-  /* home - web title */
+  /* home */
+  #example-div h2{
+    max-width: 200px !important;
+  }
   #webTitle{
-    font-size: 8rem !important;
-    padding: 0;
+    font-size: 4rem !important;
+    padding: 20px;
   }
   /* category layout */
   .nav-cat{
@@ -452,5 +484,16 @@ tbody tr:last-child{
   }
   .add-submit{
     margin-bottom: 20px;
+  }
+  /* table */
+  #table {
+    width: 100%;
+    overflow-x: auto;
+  }
+
+  table {
+    width: 100%;
+    min-width: 300px;
+    border-collapse: collapse;
   }
 }
