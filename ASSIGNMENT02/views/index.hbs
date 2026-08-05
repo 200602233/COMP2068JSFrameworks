@@ -1,25 +1,102 @@
 
-<h1>
-    {{#if (eq lang "es")}}
-        Bienvenido al Rosita!
-    {{else}}
-        Welcome to Rosita!
-    {{/if}}
-</h1>
-
-<p>
-    {{#if (eq lang "es")}}
-        Tagline / intro para here
-    {{else}}
-        Tagline / intro para here
-    {{/if}}
-</p>
+<h1>Rosita</h1>
+<div>
+    <p>
+        {{#if (eq lang "es")}}
+            
+        {{else}}
+            Your own personal English & Spanish Vocabulary Library<p>Organize your own words and phrases in one place!
+        {{/if}}
+    </p>
+    <button class="homeBtns">
+        <a href="/login?lang={{lang}}">{{#if (eq lang "es")}}Iniciar sesión{{else}}Login{{/if}}</a>
+    </button>
+    <button class="homeBtns">
+        <a href="/register?lang={{lang}}">{{#if (eq lang "es")}}Registrarse{{else}}Register{{/if}}</a>
+    </button>
+</div>
 <br>
 
-<p>
-    {{#if (eq lang "es")}}
-        maybe link to Categories or sign in idk
-    {{else}}
-        maybe link to Categories or sign in idk
-    {{/if}}
-</p>
+<div>
+    <h2>
+        {{#if (eq lang "es")}}
+            ¡Bienvenido!
+        {{else}}
+            Welcome!
+        {{/if}}
+    </h2>
+    <p>
+        {{#if (eq lang "es")}}
+            
+        {{else}}
+            Create your own collection of English and Spanish words and phrases! Organize them into categories, edit them anytime, and keep all your vocabulary in one library for easy access!
+        {{/if}}
+    </p>
+    <button class="homeBtns">
+        <a href="/categories?lang={{lang}}">{{#if (eq lang "es")}}{{else}}Start Now{{/if}}</a>
+    </button>
+</div>
+<br>
+
+<div>
+    <p>
+        {{#if (eq lang "es")}}
+            
+        {{else}}
+            
+        {{/if}}
+    </p>
+    <br>
+
+    <p>
+        {{#if (eq lang "es")}}
+            
+        {{else}}
+            
+        {{/if}}
+    </p>
+</div>
+<br>
+
+<div>
+    <h2>{{#if (eq lang "es")}}{{else}}Example Entries To Get You Started{{/if}}</h2>
+    <table class="table" id="example-table">
+        <thead>
+            <tr>
+                <th>{{#if (eq lang "es")}}Español{{else}}English{{/if}}</th>
+                <th>{{#if (eq lang "es")}}Inglés{{else}}Spanish{{/if}}</th>
+                <th>{{#if (eq lang "es")}}Categoría{{else}}Categories{{/if}}</th>
+                <th>{{#if (eq lang "es")}}Tipo{{else}}Type{{/if}}</th>
+                <th>{{#if (eq lang "es")}}Usado en una oración{{else}}Used in a Sentence{{/if}}</th>
+                <th>{{#if (eq lang "es")}}Nota{{else}}Note{{/if}}</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{!-- hard coded examples for main page --}}
+            <tr>
+                <td>{{#if (eq lang "es")}}Hola{{else}}Hello{{/if}}</td>
+                <td>{{#if (eq lang "es")}}Hello{{else}}Hola{{/if}}</td>
+                <td>{{#if (eq lang "es")}}Saludos{{else}}Greetings{{/if}}</td>
+                <td>{{#if (eq lang "es")}}Palabra{{else}}Word{{/if}}</td>
+                <td>{{#if (eq lang "es")}}Hello, how are you?{{else}}Hola, como estás?{{/if}}</td>
+                <td>{{#if (eq lang "es")}}Saludo básico{{else}}Basic greeting{{/if}}</td>
+            </tr>
+            <tr>
+                <td>{{#if (eq lang "es")}}Gato{{else}}Cat{{/if}}</td>
+                <td>{{#if (eq lang "es")}}Cat{{else}}Gato{{/if}}</td>
+                <td>{{#if (eq lang "es")}}Animales{{else}}Animals{{/if}}</td>
+                <td>{{#if (eq lang "es")}}Palabra{{else}}Word{{/if}}</td>
+                <td>{{#if (eq lang "es")}}I have a cat{{else}}Tengo un gato{{/if}}</td>
+                <td>{{#if (eq lang "es")}}"Tengo un gato" es el ejemplo.{{else}}"I have a cat" is the example.{{/if}}</td>
+            </tr>
+            <tr>
+                <td>{{#if (eq lang "es")}}¿Como se dice...?{{else}}How do you say...?{{/if}}</td>
+                <td>{{#if (eq lang "es")}}How do you say...?{{else}}¿Como se dice...?{{/if}}</td>
+                <td>{{#if (eq lang "es")}}Otro{{else}}Other{{/if}}</td>
+                <td>{{#if (eq lang "es")}}Frase{{else}}Phrase{{/if}}</td>
+                <td>{{#if (eq lang "es")}}How do you say 'Lunes' in English?{{else}}¿Como se dice 'Monday' en español?{{/if}}</td>
+                <td>{{#if (eq lang "es")}}Pregunta a la gente cómo decir algo en Inglés{{else}}Ask people how to say something in Spanish{{/if}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
