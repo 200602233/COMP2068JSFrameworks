@@ -189,6 +189,17 @@ div{
   border-right: 1px solid black;
   margin-bottom: 50px;
 }
+#webTitle{
+  background-color: #810c79;
+  font-size: 25rem !important;
+  margin-bottom: 10px;
+  padding-bottom: 80px;
+  border-radius: 50px;
+  color: black;
+  min-width: 94%;
+  text-align: center;
+  height: fit-content;
+}
 
 
 /* Categories */
@@ -292,6 +303,13 @@ tbody tr:last-child{
 
 
 /* Code for when user makes screen smaller */
+@media screen and (max-width: 1200px) {
+  /* home title */
+  #webTitle{
+    font-size: 10rem !important;
+    padding: 60px;
+  }
+}
 @media screen and (max-width: 767.5px) {
   body {
     flex-direction: column;
@@ -327,6 +345,11 @@ tbody tr:last-child{
     margin-top: 5px;
     background-color: rgb(245, 186, 242);
     border-radius: 15px;
+  }
+  /* home title */
+  #webTitle{
+    font-size: 8rem !important;
+    padding-bottom: 20px;
   }
   /* category */
   .category-h1{
@@ -401,6 +424,11 @@ tbody tr:last-child{
   }
   .authLabel + input{
     width: 150px;
+  }
+  /* home - web title */
+  #webTitle{
+    font-size: 8rem !important;
+    padding: 0;
   }
   /* category layout */
   .nav-cat{
