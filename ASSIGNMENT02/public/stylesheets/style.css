@@ -167,7 +167,13 @@ h6{
 
 
 /* Home */
-
+div{
+  text-align: center;
+}
+#example-table{
+  text-align: left;
+  border-right: 1px solid black;
+}
 
 
 /* Categories */
