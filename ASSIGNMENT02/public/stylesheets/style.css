@@ -54,7 +54,6 @@ h1{
 }
 .nav-link:hover{
   color: black !important;
-  background-color: rgb(213, 149, 209);
 }
 
 /* all language links */
@@ -373,6 +372,14 @@ tbody tr:last-child{
   .bottom-nav > div:first-of-type{
     width: 80px;
     margin: 10px;
+  }
+  /* login / register */
+  .authLabel{
+    width: 120px;
+    margin: 0px;
+  }
+  .authLabel + input{
+    width: 150px;
   }
   /* category layout */
   .nav-cat{
