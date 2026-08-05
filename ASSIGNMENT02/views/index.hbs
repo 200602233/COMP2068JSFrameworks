@@ -1,23 +1,8 @@
 
 <h1 id="webTitle">Rosita</h1>
-<div>
-    <p>
-        {{#if (eq lang "es")}}
-            Tu propia biblioteca personal de vocabulario en inglés y español<p>¡Organiza tus propias palabras y frases en un solo lugar!
-        {{else}}
-            Your own personal English & Spanish Vocabulary Library<p>Organize your own words and phrases in one place!
-        {{/if}}
-    </p>
-    {{#if user}}
-    {{else}}
-        <button class="homeBtns">
-            <a href="/login?lang={{lang}}">{{#if (eq lang "es")}}¡Inicia sesión para empezar!{{else}}Login to Get Started!{{/if}}</a>
-        </button>
-    {{/if}}
-</div>
-<br>
 
-<div>
+<div id="welcome-div">
+    <img id="line" src="/images/line.png"/>
     <h2>
         {{#if (eq lang "es")}}
             ¡Bienvenido!
@@ -35,73 +20,73 @@
     <button class="homeBtns">
         <a href="/categories?lang={{lang}}">{{#if (eq lang "es")}}Empieza ahora{{else}}Start Now{{/if}}</a>
     </button>
-</div>
-<br>
 
-<div class="list-div">
-    <h2>
-        {{#if (eq lang "es")}}
-            ¿Por qué usar Rosita?
-        {{else}}
-            Why Use Rosita?
-        {{/if}}
-    </h2>
-    <ul class="whyList">
-        {{!-- heart from https://emojicombos.com/heart --}}
-        <li>♡ {{#if (eq lang "es")}}¡Crea tu propia biblioteca de vocabulario personal!{{else}}Create your OWN personal vocabulary library!{{/if}}</li>
-        <li>♡ {{#if (eq lang "es")}}Edita tus entradas en cualquier momento.{{else}}Edit your entries at any time.{{/if}}</li>
-        <li>♡ {{#if (eq lang "es")}}Elimina las entradas que quizá ya no quieras.{{else}}Delete entries that you may not want anymore.{{/if}}</li>
-        <li>♡ {{#if (eq lang "es")}}Organiza las entradas por tipo.{{else}}Organize entries by the Type.{{/if}}</li>
-        <li>♡ {{#if (eq lang "es")}}¡Acceso fácil a tus propuestas!{{else}}Easy access to your entries!{{/if}}</li>
-    </ul>
-    </p>
-</div>
-<br>
+    <div class="list-div">
+        <h2>
+            {{#if (eq lang "es")}}
+                ¿Por qué usar Rosita?
+            {{else}}
+                Why Use Rosita?
+            {{/if}}
+        </h2>
+        <ul class="whyList">
+            {{!-- heart from https://emojicombos.com/heart --}}
+            <li>♡ {{#if (eq lang "es")}}¡Crea tu propia biblioteca de vocabulario personal!{{else}}Create your OWN personal vocabulary library!{{/if}}</li>
+            <li>♡ {{#if (eq lang "es")}}Edita tus entradas en cualquier momento.{{else}}Edit your entries at any time.{{/if}}</li>
+            <li>♡ {{#if (eq lang "es")}}Elimina las entradas que quizá ya no quieras.{{else}}Delete entries that you may not want anymore.{{/if}}</li>
+            <li>♡ {{#if (eq lang "es")}}Organiza las entradas por tipo.{{else}}Organize entries by the Type.{{/if}}</li>
+            <li>♡ {{#if (eq lang "es")}}¡Acceso fácil a tus propuestas!{{else}}Easy access to your entries!{{/if}}</li>
+        </ul>
+        </p>
+    </div>
+    <br>
 
-<div class="example-div">
-    <h2>{{#if (eq lang "es")}}Ejemplos de entradas para empezar{{else}}Example Entries To Get You Started{{/if}}</h2>
-    <table class="table" id="example-table">
-        <thead>
-            <tr>
-                <th>{{#if (eq lang "es")}}Español{{else}}English{{/if}}</th>
-                <th>{{#if (eq lang "es")}}Inglés{{else}}Spanish{{/if}}</th>
-                <th>{{#if (eq lang "es")}}Categoría{{else}}Categories{{/if}}</th>
-                <th>{{#if (eq lang "es")}}Tipo{{else}}Type{{/if}}</th>
-                <th>{{#if (eq lang "es")}}Usado en una oración{{else}}Used in a Sentence{{/if}}</th>
-                <th>{{#if (eq lang "es")}}Nota{{else}}Note{{/if}}</th>
-            </tr>
-        </thead>
-        <tbody>
-            {{!-- hard coded examples for main page --}}
-            <tr>
-                <td>{{#if (eq lang "es")}}Hola{{else}}Hello{{/if}}</td>
-                <td>{{#if (eq lang "es")}}Hello{{else}}Hola{{/if}}</td>
-                <td>{{#if (eq lang "es")}}Saludos{{else}}Greetings{{/if}}</td>
-                <td>{{#if (eq lang "es")}}Palabra{{else}}Word{{/if}}</td>
-                <td>{{#if (eq lang "es")}}Hello, how are you?{{else}}¿Hola, como estás?{{/if}}</td>
-                <td>{{#if (eq lang "es")}}Saludo básico{{else}}Basic greeting{{/if}}</td>
-            </tr>
-            <tr>
-                <td>{{#if (eq lang "es")}}Gato{{else}}Cat{{/if}}</td>
-                <td>{{#if (eq lang "es")}}Cat{{else}}Gato{{/if}}</td>
-                <td>{{#if (eq lang "es")}}Animales{{else}}Animals{{/if}}</td>
-                <td>{{#if (eq lang "es")}}Palabra{{else}}Word{{/if}}</td>
-                <td>{{#if (eq lang "es")}}I have a cat{{else}}Tengo un gato{{/if}}</td>
-                <td>{{#if (eq lang "es")}}"Tengo un gato" es el ejemplo.{{else}}"I have a cat" is the example.{{/if}}</td>
-            </tr>
-            <tr>
-                <td>{{#if (eq lang "es")}}¿Como se dice...?{{else}}How do you say...?{{/if}}</td>
-                <td>{{#if (eq lang "es")}}How do you say...?{{else}}¿Como se dice...?{{/if}}</td>
-                <td>{{#if (eq lang "es")}}Otro{{else}}Other{{/if}}</td>
-                <td>{{#if (eq lang "es")}}Frase{{else}}Phrase{{/if}}</td>
-                <td>{{#if (eq lang "es")}}How do you say 'Lunes' in English?{{else}}¿Como se dice 'Monday' en español?{{/if}}</td>
-                <td>{{#if (eq lang "es")}}Pregunta a la gente cómo decir algo en Inglés{{else}}Ask people how to say something in Spanish{{/if}}</td>
-            </tr>
-        </tbody>
-    </table>
-    {{!-- add button --}}
-    <button class="homeBtns">
-        <a href="/add?lang={{lang}}">{{#if (eq lang "es")}}¡Añade la tuya!{{else}}Add Your Own!{{/if}}</a>
-    </button>
+    <div class="example-div">
+        <h2>{{#if (eq lang "es")}}Ejemplos de entradas para empezar{{else}}Example Entries To Get You Started{{/if}}</h2>
+        <table class="table" id="example-table">
+            <thead>
+                <tr>
+                    <th>{{#if (eq lang "es")}}Español{{else}}English{{/if}}</th>
+                    <th>{{#if (eq lang "es")}}Inglés{{else}}Spanish{{/if}}</th>
+                    <th>{{#if (eq lang "es")}}Categoría{{else}}Categories{{/if}}</th>
+                    <th>{{#if (eq lang "es")}}Tipo{{else}}Type{{/if}}</th>
+                    <th>{{#if (eq lang "es")}}Usado en una oración{{else}}Used in a Sentence{{/if}}</th>
+                    <th>{{#if (eq lang "es")}}Nota{{else}}Note{{/if}}</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{!-- hard coded examples for main page --}}
+                <tr>
+                    <td>{{#if (eq lang "es")}}Hola{{else}}Hello{{/if}}</td>
+                    <td>{{#if (eq lang "es")}}Hello{{else}}Hola{{/if}}</td>
+                    <td>{{#if (eq lang "es")}}Saludos{{else}}Greetings{{/if}}</td>
+                    <td>{{#if (eq lang "es")}}Palabra{{else}}Word{{/if}}</td>
+                    <td>{{#if (eq lang "es")}}Hello, how are you?{{else}}¿Hola, como estás?{{/if}}</td>
+                    <td>{{#if (eq lang "es")}}Saludo básico{{else}}Basic greeting{{/if}}</td>
+                </tr>
+                <tr>
+                    <td>{{#if (eq lang "es")}}Gato{{else}}Cat{{/if}}</td>
+                    <td>{{#if (eq lang "es")}}Cat{{else}}Gato{{/if}}</td>
+                    <td>{{#if (eq lang "es")}}Animales{{else}}Animals{{/if}}</td>
+                    <td>{{#if (eq lang "es")}}Palabra{{else}}Word{{/if}}</td>
+                    <td>{{#if (eq lang "es")}}I have a cat{{else}}Tengo un gato{{/if}}</td>
+                    <td>{{#if (eq lang "es")}}"Tengo un gato" es el ejemplo.{{else}}"I have a cat" is the example.{{/if}}</td>
+                </tr>
+                <tr>
+                    <td>{{#if (eq lang "es")}}¿Como se dice...?{{else}}How do you say...?{{/if}}</td>
+                    <td>{{#if (eq lang "es")}}How do you say...?{{else}}¿Como se dice...?{{/if}}</td>
+                    <td>{{#if (eq lang "es")}}Otro{{else}}Other{{/if}}</td>
+                    <td>{{#if (eq lang "es")}}Frase{{else}}Phrase{{/if}}</td>
+                    <td>{{#if (eq lang "es")}}How do you say 'Lunes' in English?{{else}}¿Como se dice 'Monday' en español?{{/if}}</td>
+                    <td>{{#if (eq lang "es")}}Pregunta a la gente cómo decir algo en Inglés{{else}}Ask people how to say something in Spanish{{/if}}</td>
+                </tr>
+            </tbody>
+        </table>
+        {{!-- add button --}}
+        <button class="homeBtns">
+            <a href="/add?lang={{lang}}">{{#if (eq lang "es")}}¡Añade la tuya!{{else}}Add Your Own!{{/if}}</a>
+        </button>
+
+    </div>
 
 </div>
