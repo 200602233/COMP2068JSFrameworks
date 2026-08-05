@@ -3,7 +3,7 @@
 <div>
     <p>
         {{#if (eq lang "es")}}
-            
+            Tu propia biblioteca personal de vocabulario en inglés y español<p>¡Organiza tus propias palabras y frases en un solo lugar!
         {{else}}
             Your own personal English & Spanish Vocabulary Library<p>Organize your own words and phrases in one place!
         {{/if}}
@@ -11,10 +11,7 @@
     {{#if user}}
     {{else}}
         <button class="homeBtns">
-            <a href="/login?lang={{lang}}">{{#if (eq lang "es")}}Iniciar sesión{{else}}Login{{/if}}</a>
-        </button>
-        <button class="homeBtns">
-            <a href="/register?lang={{lang}}">{{#if (eq lang "es")}}Registrarse{{else}}Register{{/if}}</a>
+            <a href="/login?lang={{lang}}">{{#if (eq lang "es")}}¡Inicia sesión para empezar!{{else}}Login to Get Started!{{/if}}</a>
         </button>
     {{/if}}
 </div>
@@ -30,13 +27,13 @@
     </h2>
     <p>
         {{#if (eq lang "es")}}
-            
+            ¡Crea tu propia colección de palabras y frases en inglés y español! ¡Organízalos en categorías, edítalos en cualquier momento y guarda todo tu vocabulario en una sola biblioteca para tener un acceso fácil!
         {{else}}
             Create your own collection of English and Spanish words and phrases! Organize them into categories, edit them anytime, and keep all your vocabulary in one library for easy access!
         {{/if}}
     </p>
     <button class="homeBtns">
-        <a href="/categories?lang={{lang}}">{{#if (eq lang "es")}}{{else}}Start Now{{/if}}</a>
+        <a href="/categories?lang={{lang}}">{{#if (eq lang "es")}}Empieza ahora{{else}}Start Now{{/if}}</a>
     </button>
 </div>
 <br>
@@ -68,8 +65,8 @@
 </div>
 <br>
 
-<div>
-    <h2>{{#if (eq lang "es")}}{{else}}Example Entries To Get You Started{{/if}}</h2>
+<div class="example-div">
+    <h2>{{#if (eq lang "es")}}Ejemplos de entradas para empezar{{else}}Example Entries To Get You Started{{/if}}</h2>
     <table class="table" id="example-table">
         <thead>
             <tr>
