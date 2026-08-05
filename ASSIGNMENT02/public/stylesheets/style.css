@@ -174,8 +174,20 @@ div{
   text-align: left;
   border-right: 1px solid black;
 }
-
-
+.homeBtns{
+  padding: 5px 15px;
+  margin: 10px;
+  border: 2px solid #b912bf;
+  background-color: #b912bf7c;
+}
+.homeBtns:hover{
+  border: 2px solid #810c79;
+  background-color: #cc0fb99d;
+}
+.homeBtns a{
+  text-decoration: none;
+  color: black;
+}
 /* Categories */
 .nav-cat{
   display: flex;
