@@ -129,6 +129,16 @@ h6{
   border-color: rgb(160, 113, 192);
   background-color: rgba(223, 175, 255, 0.745);
 }
+.auth-nav-link{
+  text-decoration: none;
+  color: rgb(121, 15, 111);
+  font-weight: 500;
+}
+.auth-nav-link:hover{
+  color: rgb(108, 13, 98);
+  text-shadow: 1px 1px rgba(0, 0, 0, 0.121);
+  text-decoration: underline;
+}
 
 
 /* user login msg - if auto login pop-up doesnt work */
