@@ -314,6 +314,10 @@ router.get('/contact', function(req, res, next){
   }
   res.render('contact', {title: title, lang});
 });
+router.post('/contact', function(req, res, next){
+  const lang = req.query.lang || 'en';
+  res.redirect('/?lang=' + lang);
+});
 
 
 module.exports = router;
