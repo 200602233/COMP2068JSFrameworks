@@ -323,6 +323,38 @@ tbody tr:last-child{
 .aboutDiv{
   margin: 20px 50px;
 }
+.features{
+  padding-left: 50px;
+}
+/* show list in numeric/decimal */
+.features ul li{
+  list-style: decimal;
+}
+.socials{
+  margin-top: 60px;
+}
+.socials h2{
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+.socials a img{
+  border-radius: 10px;
+  width: 60px;
+  margin: 10px;
+  height: auto;
+}
+.socials a img:hover{
+  width: 65px;
+  margin: 5px;
+  height: auto;
+  box-shadow: 3px 2px rgba(0, 0, 0, 0.262);
+}
+.socials a img:active{
+  box-shadow: 2px 1px rgba(0, 0, 0, 0.262);
+}
 
 /* Contact */
 .contactForm{
