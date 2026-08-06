@@ -32,6 +32,6 @@
         <button class="btn">{{#if (eq lang "es")}}Iniciar sesión{{else}}Login{{/if}}</button>
         <a class="btn" href="/github">{{#if (eq lang "es")}}Iniciar sesión con GitHub{{else}}Login with GitHub{{/if}}</a>
         <hr/> 
-        {{#if (eq lang "es")}}¿No tienes cuenta? {{else}}Don't have an account? {{/if}}<a href="/register?lang={{lang}}" title="register">{{#if (eq lang "es")}}¡Regístrate hoy!{{else}}Register today!{{/if}}</a>
+        {{#if (eq lang "es")}}¿No tienes cuenta? {{else}}Don't have an account? {{/if}}<a href="/register?lang={{lang}}" title="register" class="auth-nav-link">{{#if (eq lang "es")}}¡Regístrate hoy!{{else}}Register today!{{/if}}</a>
     </fieldset>
 </form>

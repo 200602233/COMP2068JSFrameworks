@@ -16,11 +16,11 @@
         <input type="text" name="username" id="username" placeholder="ex. Joe Doe" required/>
     </fieldset>
     <fieldset class="auth-form-row">
-        <label for="email" class="authLabel">{{#if (eq lang "es")}}* Email: {{else}}* Email: {{/if}}</label>
+        <label for="email" class="authLabel">{{#if (eq lang "es")}}* Correo electrónico: {{else}}* Email: {{/if}}</label>
         <input type="email" name="email" id="email" placeholder="ex. rosita@lang.com" required/>
     </fieldset>
+    <br>
     {{!-- pass --}}
-    <p class="auth-p">{{#if (eq lang "es")}}La contraseña debe incluir{{else}}Password must include{{/if}}</p>
     <fieldset class="auth-form-row">
         <label for="password" class="authLabel">{{#if (eq lang "es")}}* Contraseña: {{else}}* Password: {{/if}}</label>
         <input type="password" name="password" id="password" required />
@@ -34,6 +34,6 @@
     <fieldset class="auth-form-row">
         <button type="submit" class="btn">{{#if (eq lang "es")}}Registro{{else}}Register{{/if}}</button>
         <hr/> 
-        {{#if (eq lang "es")}}¿Ya tienes una cuenta?{{else}}Already have an account?{{/if}}<a href="/login?lang={{lang}}" title="login">{{#if (eq lang "es")}}¡Inicia sesión ahora!{{else}}Login now!{{/if}}</a>
+        {{#if (eq lang "es")}}¿Ya tienes una cuenta?{{else}}Already have an account?{{/if}}<a href="/login?lang={{lang}}" title="login" class="auth-nav-link">{{#if (eq lang "es")}}¡Inicia sesión ahora!{{else}}Login now!{{/if}}</a>
     </fieldset>
 </form>
