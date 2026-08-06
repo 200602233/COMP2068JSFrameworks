@@ -1,22 +1,57 @@
 
-<h1>{{title}}</h1>
+<h1>
+    {{#if (eq lang "es")}}
+        Acerca de
+    {{else}}
+        About
+    {{/if}}
+</h1>
 
 <div class="aboutDiv">
     {{#if (eq lang "es")}}
     {{else}}
     {{/if}}
-
     <p>
         {{#if (eq lang "es")}}
-
+        Rosita fue creada y diseñada por <strong>Brianna C.</strong>, una estudiante del Georgian College en el programa de Programación Informática - CMPG. Su objetivo era crear una página web que pudiera ser muy útil para ayudarse no solo a ella misma a aprender español, sino también a su futura suegra a aprender inglés. 
         {{else}}
-        Created and designed by <strong>Brianna</strong>, a student from Georgian College in the Computer Programming - CMPG program. Her goal was to make a website that could be very useful to help not only herself with learning spanish, but her future mother-in-law with learning english.
+        Rosita was created and designed by <strong>Brianna C.</strong>, a student from Georgian College in the Computer Programming - CMPG program. Her goal was to make a website that could be very useful to help not only herself with learning spanish, but her future mother-in-law with learning english. 
         {{/if}}
     </p>
 </div>
+
+<div class="features">
+    <h2>{{#if (eq lang "es")}}Características:{{else}}Features:{{/if}}</h2>
+    <ul>
+        <li>
+            {{#if (eq lang "es")}}
+            <strong>Campo de búsqueda: </strong>Implementamos una función de barra de búsqueda para que nuestros usuarios encuentren rápidamente las entradas.
+            {{else}}
+            <strong>Search Field: </strong>We implemented a search bar feature for our users to quickly find entries.
+            {{/if}}
+        </li>
+        <li>
+            {{#if (eq lang "es")}}
+            <strong>Traducción de la página web: </strong>Traducimos manualmente toda la web tanto al inglés como al español. Esto ayuda a que el usuario se sienta más cómodo al navegar por nuestro sitio en su idioma preferido.
+            {{else}}
+            <strong>Website Translation: </strong>We manually translated the entire website in both English and Spanish. This helps user feel more comfortable when navigating through our site in their preferred language.
+            {{/if}}
+        </li>
+        <li>
+            {{#if (eq lang "es")}}
+            <strong>Traducción automática para la entrada: </strong>Cuando un usuario va a añadir una nueva entrada e introduce la palabra o frase en la primera caja de entrada, la segunda caja de entrada se traduce automáticamente al otro idioma. Por ejemplo: Hola -> Hello (automático) / Hello -> Hola (automático)
+            {{else}}
+            <strong>Auto-Translate For Entry: </strong>When a user goes to add a new entry and input the word or phrase into the first input box, the second input box automatically translates to the other language. For example: Hola -> Hello (auto) / Hello -> Hola (auto)
+            {{/if}}
+        </li>
+    </ul>
+</div>
+
 <div class="socials">
-    <h2>{{#if (eq lang "es")}}{{else}}Follow our Socials!{{/if}}</h2>
+    <h2>{{#if (eq lang "es")}}¡Sigue nuestras redes sociales!{{else}}Follow our Socials!{{/if}}</h2>
     <a href="./contact.hbs" target="_self"><img src="/images/mail_icon.png"/></a>
-    {{!-- make links just open the webpage to apps as there is no offical webpage but I do not wanna put my own --}}
-    <a href="" target="_blank"><img src="/images/"/></a>
+    {{!-- no actual socials, just bring to main page--}}
+    <a href="https://www.instagram.com/" target="_blank"><img src="/images/instagram_icon.png"/></a>
+    <a href="https://www.facebook.com/" target="_blank"><img src="/images/facebook_icon.png"/></a>
+    <a href="https://x.com/" target="_blank"><img src="/images/twitter_icon.png"/></a>
 </div>
